@@ -28,83 +28,47 @@ void	ft_printexit(int n)
 	}
 }
 
-int	checknum(char *num)
-{
-	int	result;
-
-	if ((num[0] != '-' && ft_strlen(num) > 10) || ft_strlen(num) > 11)
-		return (-1);
-	if (num[0] == '0' || (num[0] == '-' && num[1] == '1'))
-		return (0);
-	result = ft_atoi(num);
-	if (result == 0 || result == -1)
-		return (-1);
-	return (0);
-}
-
-int	checkword(char *num)
-{
-	int	i;
-
-	i = 0;
-	while (num[i])
-	{
-		if (ft_isalpha(num[i]) == 0)
-			return (-1);
-		i++;
-	}
-	return (0);
-}
-
-void	checkparams(int argc, char **argv)
-{
-	int	i;
-
-	i = 1;
-	if (argc < 2)
-		ft_printexit(1);
-	while (i < argc)
-	{
-		if (checknum(argv[i]) != 0)
-			ft_printexit(2);
-		i++;
-	}
-}
-
-void	*ft_malloc(int size)
-{
-	s_item	*stack;
-
-	stack = (s_item *) malloc (size * sizeof(s_item));
-	if (!stack)
-		return (NULL);
-	return (stack);
-}
-
-s_item	*fillstack(int argc, char **argv)
+s_stack	*fillstack_a(int argc, char **argv)
 {
 	int		i;
-	s_item	*stack;
+	s_stack	*stack;
 
 	i = 1;
-	stack = ft_malloc((argc - 1) * sizeof(*stack));
+	stack = (s_stack *) ft_calloc(sizeof(s_stack), 1);
 	if (!stack)
+		ft_printexit(3);
+	stack->number = (int *) ft_calloc(sizeof(int), argc - 1);
+	if (!stack->number)
 		ft_printexit(3);
 	while (i < argc)
 	{
-		stack[i].number = ft_atoi(argv[i]);
+		stack->number[i - 1] = ft_atoi(argv[i]);
 		i++;
 	}
+	return (stack);
+}
+
+s_stack	*fillstack_b(int argc)
+{
+	s_stack	*stack;
+
+	stack = (s_stack *) ft_calloc(sizeof(s_stack), 1);
+	if (!stack)
+		ft_printexit(3);
+	stack->number = (int *) ft_calloc(sizeof(int), argc - 1);
+	if (!stack->number)
+		ft_printexit(3);
 	return (stack);
 }
 
 int	main(int argc, char **argv)
 {
-	s_item	*stack;
+	s_stack	*a;
+	s_stack	*b;
 
 	checkparams(argc, argv);
-	stack = fillstack(argc, argv);
-	ft_printf("%d, %d, %d", stack[0].number, stack[1].number, stack[2].number);
-	free (stack);
+	a = fillstack_a(argc, argv);
+	b = fillstack_b(argc);
+	ft_freestacks(a, b);
 	return (0);
 }

@@ -6,13 +6,14 @@
 #    By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 22:13:13 by jadithya          #+#    #+#              #
-#    Updated: 2022/09/16 03:01:25 by jadithya         ###   ########.fr        #
+#    Updated: 2022/09/24 15:56:12 by jadithya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRCS = push_swap.c
+SRCS = push_swap.c\
+		checkparams.c
 
 CC = gcc
 
