@@ -12,53 +12,59 @@
 
 #include"push_swap.h"
 
-void	ft_printexit(int n)
+void	ft_freestacks(s_stack *a, s_stack *b)
 {
-	if (n == 1)
-		exit(1);
+	if (a->number)
+		free(a->number);
+	if (b->number)
+		free(b->number);
+	if (a)
+		free(a);
+	if (b)
+		free(b);
+}
+
+void	pushswap(s_stack *a, s_stack *b, int n)
+{
 	if (n == 2)
 	{
-		ft_printf("Error\n");
-		exit(2);
+		if (a->number[0] > a->number[1])
+			swap(a, 'a');
 	}
-	if (n == 3)
+	else if (n == 3)
 	{
-		ft_printf("Error creating stack. Exiting.\n");
-		exit(3);
+		if (a->number[0] > a->number[1])
+			sort3_1(a);
+		else
+			sort3_2(a);
 	}
+	else if (n <= 5)
+	{
+		// sendtoB(a, b, n);
+		return ;
+	}
+	if (b->top)
+		return ;
 }
 
-s_stack	*fillstack_a(int argc, char **argv)
+void	test_stacks(s_stack *a, s_stack *b)
 {
-	int		i;
-	s_stack	*stack;
+	int	i;
 
-	i = 1;
-	stack = (s_stack *) ft_calloc(sizeof(s_stack), 1);
-	if (!stack)
-		ft_printexit(3);
-	stack->number = (int *) ft_calloc(sizeof(int), argc - 1);
-	if (!stack->number)
-		ft_printexit(3);
-	while (i < argc)
+	i = 0;
+	ft_printf("Stack A: \n");
+	while (i < a->items)
 	{
-		stack->number[i - 1] = ft_atoi(argv[i]);
+		ft_printf("%d\n", a->number[i]);
 		i++;
 	}
-	return (stack);
-}
-
-s_stack	*fillstack_b(int argc)
-{
-	s_stack	*stack;
-
-	stack = (s_stack *) ft_calloc(sizeof(s_stack), 1);
-	if (!stack)
-		ft_printexit(3);
-	stack->number = (int *) ft_calloc(sizeof(int), argc - 1);
-	if (!stack->number)
-		ft_printexit(3);
-	return (stack);
+	i = 0;
+	ft_printf("Stack B: \n");
+	while (i < b->items)
+	{
+		ft_printf("%d\n", b->number[i]);
+		i++;
+	}
 }
 
 int	main(int argc, char **argv)
@@ -67,8 +73,12 @@ int	main(int argc, char **argv)
 	s_stack	*b;
 
 	checkparams(argc, argv);
+	if (argc == 2)
+		ft_printexit(4);
 	a = fillstack_a(argc, argv);
 	b = fillstack_b(argc);
+	pushswap(a, b, argc - 1);
+	test_stacks(a, b);
 	ft_freestacks(a, b);
 	return (0);
 }

@@ -33,7 +33,7 @@ int	checkword(char *num)
 	i = 0;
 	while (num[i])
 	{
-		if (ft_isalpha(num[i]) != 0)
+		if (ft_isdigit(num[i]) != 1)
 			return (-1);
 		i++;
 	}
@@ -43,6 +43,7 @@ int	checkword(char *num)
 void	checkparams(int argc, char **argv)
 {
 	int	i;
+	int	j;
 
 	i = 1;
 	if (argc < 2)
@@ -51,6 +52,13 @@ void	checkparams(int argc, char **argv)
 	{
 		if (checknum(argv[i]) != 0 || checkword(argv[i]) != 0)
 			ft_printexit(2);
+		j = i + 1;
+		while (j < argc)
+		{
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+				ft_printexit(2);
+			j++;
+		}
 		i++;
 	}
 }
