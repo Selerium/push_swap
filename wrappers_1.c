@@ -60,4 +60,15 @@ void	sendtoB(t_stack *a, t_stack *b, int n)
 		revrotate(a, 'a', 1);
 		push(a, b, 1);
 	}
+	else if (temp >= n / 2)
+	{
+		revrotate(a, 'a', 1);
+		push(a, b, 1);
+	}
+	else if (temp > 1)
+	{
+		swap(a, 'a', 1);
+		push(a, b, 1);
+	}
+	else
 }
