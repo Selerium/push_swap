@@ -12,7 +12,7 @@
 
 #include"push_swap.h"
 
-void	swapitems(s_stack *stack, int top, int i)
+void	swapitems(t_stack *stack, int top, int i)
 {
 	int	temp;
 
@@ -21,13 +21,13 @@ void	swapitems(s_stack *stack, int top, int i)
 	stack->number[i] = temp;
 }
 
-s_stack	*fillstack_a(int argc, char **argv)
+t_stack	*fillstack_a(int argc, char **argv)
 {
 	int		i;
-	s_stack	*stack;
+	t_stack	*stack;
 
 	i = 1;
-	stack = (s_stack *) ft_calloc(sizeof(s_stack), 1);
+	stack = (t_stack *) ft_calloc(sizeof(t_stack), 1);
 	if (!stack)
 		ft_printexit(3);
 	stack->number = (int *) ft_calloc(sizeof(int), argc - 1);
@@ -42,11 +42,11 @@ s_stack	*fillstack_a(int argc, char **argv)
 	return (stack);
 }
 
-s_stack	*fillstack_b(int argc)
+t_stack	*fillstack_b(int argc)
 {
-	s_stack	*stack;
+	t_stack	*stack;
 
-	stack = (s_stack *) ft_calloc(sizeof(s_stack), 1);
+	stack = (t_stack *) ft_calloc(sizeof(t_stack), 1);
 	if (!stack)
 		ft_printexit(3);
 	stack->number = (int *) ft_calloc(sizeof(int), argc - 1);

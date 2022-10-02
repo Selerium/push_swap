@@ -24,24 +24,30 @@ typedef struct stack
 	int	*number;
 	int	top;
 	int	items;
-} s_stack;
+}	t_stack;
 
+// stack construction:
+t_stack	*fillstack_a(int argc, char **argv);
+t_stack	*fillstack_b(int argc);
+
+// utilities:
 void	checkparams(int argc, char **argv);
-void	swapitems(s_stack *stack, int top, int i);
+void	swapitems(t_stack *stack, int top, int i);
 void	ft_printexit(int n);
 
-s_stack	*fillstack_a(int argc, char **argv);
-s_stack	*fillstack_b(int argc);
+// wrappers:
+void	sort3_1(t_stack *a);
+void	sort3_2(t_stack *a);
 
-void	sort3_1(s_stack *a);
-void	sort3_2(s_stack *a);
+// operations:
+void	swap(t_stack *stack, char c, int opt);
+void	rotate(t_stack *stack, char c, int opt);
+void	revrotate(t_stack *stack, char c, int opt);
+void	push(t_stack *a, t_stack *b, int dir);
 
-void	swap(s_stack *stack, char c);
-void	rotate(s_stack *stack, char c);
-void	revrotate(s_stack *stack, char c);
-void	push(s_stack *a, s_stack *b, int dir);
-void	m_swap(s_stack *a, s_stack *b);
-void	m_rotate(s_stack *a, s_stack *b);
-void	m_revrotate(s_stack *a, s_stack *b);
+// multi-stack operations:
+void	m_swap(t_stack *a, t_stack *b);
+void	m_rotate(t_stack *a, t_stack *b);
+void	m_revrotate(t_stack *a, t_stack *b);
 
 #endif

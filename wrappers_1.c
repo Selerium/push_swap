@@ -12,37 +12,37 @@
 
 #include"push_swap.h"
 
-void	sort3_1(s_stack *a)
+void	sort3_1(t_stack *a)
 {
 	if (a->number[0] < a->number[2])
-				swap(a, 'a');
+				swap(a, 'a', 1);
 	else
 	{
 		if (a->number[2] > a->number[1])
-			rotate(a, 'a');
+			rotate(a, 'a', 1);
 		else
 		{
-			swap(a, 'a');
-			revrotate(a, 'a');
+			swap(a, 'a', 1);
+			revrotate(a, 'a', 1);
 		}
 	}
 }
 
-void	sort3_2(s_stack *a)
+void	sort3_2(t_stack *a)
 {
 	if (a->number[0] > a->number[2])
-		revrotate(a, 'a');
+		revrotate(a, 'a', 1);
 	else
 	{
 		if (a->number[1] > a->number[2])
 		{
-			swap(a, 'a');
-			rotate(a, 'a');
+			swap(a, 'a', 1);
+			rotate(a, 'a', 1);
 		}
 	}
 }
 
-void	sendtoB(s_stack *a, s_stack *b, int n)
+void	sendtoB(t_stack *a, t_stack *b, int n)
 {
 	int	i;
 	int	temp;
@@ -55,7 +55,9 @@ void	sendtoB(s_stack *a, s_stack *b, int n)
 			temp = i;
 		i++;
 	}
-	if (b->top && n)
-		return ;
-	// push(a, b, 1);
+	if (temp == n - 1)
+	{
+		revrotate(a, 'a', 1);
+		push(a, b, 1);
+	}
 }

@@ -12,36 +12,53 @@
 
 #include"push_swap.h"
 
-void	swap(s_stack *stack, char c)
+void	swap(t_stack *stack, char c, int opt)
 {
 	swapitems(stack, stack->top, 1);
-	ft_printf("s%c\n", c);
+	if (opt)
+		ft_printf("s%c\n", c);
 }
 
-void	rotate(s_stack *stack, char c)
+void	rotate(t_stack *stack, char c, int opt)
 {
 	int	i;
 
 	i = stack->items;
 	while (--i > 0)
 		swapitems(stack, stack->top, i);
-	ft_printf("r%c\n", c);
+	if (opt)
+		ft_printf("r%c\n", c);
 }
 
-void	revrotate(s_stack *stack, char c)
+void	revrotate(t_stack *stack, char c, int opt)
 {
 	int	i;
 
 	i = 0;
 	while (++i < stack->items)
 		swapitems(stack, stack->top, i);
-	ft_printf("rr%c\n", c);
+	if (opt)
+		ft_printf("rr%c\n", c);
 }
 
-// void	push(s_stack *a, s_stack *b, int dir)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (i < )
-// }
+void	push(t_stack *a, t_stack *b, int dir)
+{
+	if (dir)
+	{
+		b->number[b->items] = a->number[a->top];
+		revrotate(b, 'b', 0);
+		b->items += 1;
+		rotate(a, 'a', 0);
+		a->number[a->items - 1] = (int) NULL;
+		a->items -= 1;
+	}
+	else
+	{
+		a->number[a->items] = b->number[b->top];
+		revrotate(a, 'a', 0);
+		a->items += 1;
+		rotate(b, 'b', 0);
+		b->number[b->items - 1] = (int) NULL;
+		b->items -= 1;
+	}
+}

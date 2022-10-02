@@ -6,7 +6,7 @@
 #    By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 22:13:13 by jadithya          #+#    #+#              #
-#    Updated: 2022/09/27 18:51:24 by jadithya         ###   ########.fr        #
+#    Updated: 2022/10/02 14:52:51 by jadithya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,6 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	make fclean -C libft
+	rm -f libft/libft.a
 
 re: fclean all

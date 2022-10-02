@@ -12,7 +12,7 @@
 
 #include"push_swap.h"
 
-void	ft_freestacks(s_stack *a, s_stack *b)
+void	ft_freestacks(t_stack *a, t_stack *b)
 {
 	if (a->number)
 		free(a->number);
@@ -24,12 +24,12 @@ void	ft_freestacks(s_stack *a, s_stack *b)
 		free(b);
 }
 
-void	pushswap(s_stack *a, s_stack *b, int n)
+void	pushswap(t_stack *a, t_stack *b, int n)
 {
 	if (n == 2)
 	{
 		if (a->number[0] > a->number[1])
-			swap(a, 'a');
+			swap(a, 'a', 1);
 	}
 	else if (n == 3)
 	{
@@ -40,14 +40,14 @@ void	pushswap(s_stack *a, s_stack *b, int n)
 	}
 	else if (n <= 5)
 	{
-		// sendtoB(a, b, n);
+		// sendtoB(a, b, 3);		dir: 1 = a->b, 0 = b->a
 		return ;
 	}
 	if (b->top)
 		return ;
 }
 
-void	test_stacks(s_stack *a, s_stack *b)
+void	test_stacks(t_stack *a, t_stack *b)
 {
 	int	i;
 
@@ -69,8 +69,8 @@ void	test_stacks(s_stack *a, s_stack *b)
 
 int	main(int argc, char **argv)
 {
-	s_stack	*a;
-	s_stack	*b;
+	t_stack	*a;
+	t_stack	*b;
 
 	checkparams(argc, argv);
 	if (argc == 2)
@@ -78,6 +78,7 @@ int	main(int argc, char **argv)
 	a = fillstack_a(argc, argv);
 	b = fillstack_b(argc);
 	pushswap(a, b, argc - 1);
+	push(a, b, 1);
 	test_stacks(a, b);
 	ft_freestacks(a, b);
 	return (0);
