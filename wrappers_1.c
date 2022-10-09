@@ -42,33 +42,31 @@ void	sort3_2(t_stack *a)
 	}
 }
 
-void	sendtoB(t_stack *a, t_stack *b, int n)
-{
-	int	i;
-	int	temp;
+// void	sendtoB(t_stack *a, t_stack *b, int n)
+// {
+// 	int	i;
+// 	int	temp;
 
-	i = 0;
-	temp = 0;
-	while (i < a->items)
-	{
-		if (a->number[temp] < a->number[i])
-			temp = i;
-		i++;
-	}
-	if (temp == n - 1)
-	{
-		revrotate(a, 'a', 1);
-		push(a, b, 1);
-	}
-	else if (temp >= n / 2)
-	{
-		revrotate(a, 'a', 1);
-		push(a, b, 1);
-	}
-	else if (temp > 1)
-	{
-		swap(a, 'a', 1);
-		push(a, b, 1);
-	}
-	else
-}
+// 	i = 0;
+// 	temp = 0;
+// 	while (i < a->items)
+// 	{
+// 		if (a->number[temp] > a->number[i])
+// 			temp = i;
+// 		i++;
+// 	}
+// 	while (temp >= n / 2 && temp < n)
+// 	{
+// 		revrotate(a, 'a', 1);
+// 		temp++;
+// 	}
+// 	while (temp > 1)
+// 	{
+// 		rotate(a, 'a', 1);
+// 		temp--;
+// 	}
+// 	if (temp == 1)
+// 		swap(a, 'a', 1);
+// 	ft_printf("items: %d temp: %d\n", a->items, temp);
+// 	push(a, b, 1);
+// }

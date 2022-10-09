@@ -31,6 +31,8 @@ int	checkword(char *num)
 	int	i;
 
 	i = 0;
+	if (num[i] == '-')
+		i++;
 	while (num[i])
 	{
 		if (ft_isdigit(num[i]) != 1)

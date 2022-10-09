@@ -46,19 +46,21 @@ void	push(t_stack *a, t_stack *b, int dir)
 	if (dir)
 	{
 		b->number[b->items] = a->number[a->top];
-		revrotate(b, 'b', 0);
 		b->items += 1;
+		revrotate(b, 'b', 0);
 		rotate(a, 'a', 0);
-		a->number[a->items - 1] = (int) NULL;
+		a->number[a->items - 1] = 0;
 		a->items -= 1;
+		ft_printf("p%c\n", 'a');
 	}
 	else
 	{
 		a->number[a->items] = b->number[b->top];
-		revrotate(a, 'a', 0);
 		a->items += 1;
+		revrotate(a, 'a', 0);
 		rotate(b, 'b', 0);
-		b->number[b->items - 1] = (int) NULL;
+		b->number[b->items - 1] = 0;
 		b->items -= 1;
+		ft_printf("p%c\n", 'b');
 	}
 }
