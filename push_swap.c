@@ -38,12 +38,8 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 		else
 			sort3_2(a);
 	}
-	// else if (n <= 5)
-	// {
-	// 	sendtoB(a, b, n);		//dir: 1 = a->b, 0 = b->a
-	// 	pushswap(a, b, n - 1);
-	// 	push(a, b, 0);
-	// }
+	else if (b->items == 1)
+		return ;
 }
 
 void	test_stacks(t_stack *a, t_stack *b)

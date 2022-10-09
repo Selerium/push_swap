@@ -38,7 +38,6 @@ void	ft_printexit(int n);
 // wrappers:
 void	sort3_1(t_stack *a);
 void	sort3_2(t_stack *a);
-// void	sendtoB(t_stack *a, t_stack *b, int n);
 
 // operations:
 void	swap(t_stack *stack, char c, int opt);
