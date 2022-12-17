@@ -40,6 +40,10 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 	}
 	else if (b->items == 1)
 		return ;
+	else
+	{
+		generalsort(a, b, n);
+	}
 }
 
 void	test_stacks(t_stack *a, t_stack *b)

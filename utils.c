@@ -72,3 +72,23 @@ void	ft_printexit(int n)
 	}
 	exit(0);
 }
+
+int	ft_median(t_stack *a)
+{
+	int	i;
+	int	max;
+	int	min;
+
+	i = 0;
+	max = a->number[0];
+	min = a->number[0];
+	while (i < a->items)
+	{
+		if (a->number[i] > max)
+			max = a->number[i];
+		if (a->number[i] < min)
+			min = a->number[i];
+		i++;
+	}
+	return ((max - min)/2);
+}

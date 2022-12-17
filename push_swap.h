@@ -34,10 +34,14 @@ t_stack	*fillstack_b(int argc);
 void	checkparams(int argc, char **argv);
 void	swapitems(t_stack *stack, int top, int i);
 void	ft_printexit(int n);
+void	test_stacks(t_stack *a, t_stack *b);
+void	ft_swap(t_stack *st, int i, int j);
+int		ft_median(t_stack *a);
 
 // wrappers:
 void	sort3_1(t_stack *a);
 void	sort3_2(t_stack *a);
+void	generalsort(t_stack *a, t_stack *b, int n);
 
 // operations:
 void	swap(t_stack *stack, char c, int opt);
