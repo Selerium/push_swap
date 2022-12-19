@@ -62,23 +62,3 @@ void	generalsort(t_stack *a, t_stack *b, int n)
 	ft_quicksort1(a, b, median);
 	ft_quicksort2(b, a, median);
 }
-
-void	ft_quicksort1(t_stack *a, t_stack *b, int median)
-{
-	while (a->items > 0)
-	{
-		push(a, b, 1);
-		if (b->number[0] < median && b->items > 1)
-			rotate(b, 'b', 1);
-	}
-}
-
-void	ft_quicksort2(t_stack *b, t_stack *a, int median)
-{
-	while (b->items > 0)
-	{
-		push(a, b, 0);
-		if (a->number[0] > median && a->items > 1)
-			rotate(a, 'a', 1);
-	}
-}

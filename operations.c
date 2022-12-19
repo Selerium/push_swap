@@ -16,7 +16,10 @@ void	swap(t_stack *stack, char c, int opt)
 {
 	swapitems(stack, stack->top, 1);
 	if (opt)
+	{
 		ft_printf("s%c\n", c);
+		g_counter++;
+	}
 }
 
 void	rotate(t_stack *stack, char c, int opt)
@@ -27,7 +30,10 @@ void	rotate(t_stack *stack, char c, int opt)
 	while (--i > 0)
 		swapitems(stack, stack->top, i);
 	if (opt)
+	{
 		ft_printf("r%c\n", c);
+		g_counter++;
+	}
 }
 
 void	revrotate(t_stack *stack, char c, int opt)
@@ -38,7 +44,10 @@ void	revrotate(t_stack *stack, char c, int opt)
 	while (++i < stack->items)
 		swapitems(stack, stack->top, i);
 	if (opt)
+	{
 		ft_printf("rr%c\n", c);
+		g_counter++;
+	}
 }
 
 void	push(t_stack *a, t_stack *b, int dir)
@@ -52,6 +61,7 @@ void	push(t_stack *a, t_stack *b, int dir)
 		a->number[a->items - 1] = 0;
 		a->items -= 1;
 		ft_printf("p%c\n", 'a');
+		g_counter++;
 	}
 	else
 	{
@@ -62,5 +72,6 @@ void	push(t_stack *a, t_stack *b, int dir)
 		b->number[b->items - 1] = 0;
 		b->items -= 1;
 		ft_printf("p%c\n", 'b');
+		g_counter++;
 	}
 }

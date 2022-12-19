@@ -19,6 +19,8 @@
 
 # include"libft/libft.h"
 
+int		g_counter;
+
 typedef struct stack
 {
 	int	*number;

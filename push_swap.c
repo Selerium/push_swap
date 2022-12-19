@@ -38,6 +38,17 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 		else
 			sort3_2(a);
 	}
+	else if (n == 4)
+	{
+		push(a, b, 1);
+		pushswap(a, b, n - 1);
+		while (b->number[0] > a->number[0] && b->number[0]
+			< a->number[a->items - 1])
+			rotate(a, 'a', 1);
+		push(a, b, 0);
+		while (a->number[0] > a->number[a->items - 1])
+			rotate(a, 'a', 1);
+	}
 	else if (b->items == 1)
 		return ;
 	else
@@ -71,6 +82,7 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 
+	g_counter = 0;
 	checkparams(argc, argv);
 	if (argc == 2)
 		ft_printexit(4);
@@ -79,5 +91,6 @@ int	main(int argc, char **argv)
 	pushswap(a, b, argc - 1);
 	test_stacks(a, b);
 	ft_freestacks(a, b);
+	ft_printf("%d\n", g_counter);
 	return (0);
 }
