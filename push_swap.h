@@ -42,6 +42,8 @@ int		ft_median(t_stack *a);
 void	sort3_1(t_stack *a);
 void	sort3_2(t_stack *a);
 void	generalsort(t_stack *a, t_stack *b, int n);
+void	ft_quicksort1(t_stack *a, t_stack *b, int median);
+void	ft_quicksort2(t_stack *a, t_stack *b, int median);
 
 // operations:
 void	swap(t_stack *stack, char c, int opt);

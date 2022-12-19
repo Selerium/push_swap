@@ -90,5 +90,5 @@ int	ft_median(t_stack *a)
 			min = a->number[i];
 		i++;
 	}
-	return ((max - min)/2);
+	return ((max - min) / 2);
 }
