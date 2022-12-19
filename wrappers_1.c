@@ -60,14 +60,11 @@ void	generalsort(t_stack *a, t_stack *b, int n)
 	median = ft_median(a);
 	ft_printf("mid: %d\n", median);
 	ft_quicksort1(a, b, median);
-	test_stacks(a, b);
 	ft_quicksort2(b, a, median);
 }
 
 void	ft_quicksort1(t_stack *a, t_stack *b, int median)
 {
-	if (a->items || b->items || median || 1)
-		ft_printf("test\n");
 	while (a->items > 0)
 	{
 		push(a, b, 1);
@@ -78,12 +75,10 @@ void	ft_quicksort1(t_stack *a, t_stack *b, int median)
 
 void	ft_quicksort2(t_stack *b, t_stack *a, int median)
 {
-	if (a->items || b->items || median || 1)
-		ft_printf("test\n");
 	while (b->items > 0)
 	{
 		push(a, b, 0);
-		if (a->number[0] >= median && a->items > 1)
+		if (a->number[0] > median && a->items > 1)
 			rotate(a, 'a', 1);
 	}
 }
