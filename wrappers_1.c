@@ -56,11 +56,17 @@ void	sort4(t_stack *a, t_stack *b, int n)
 	int	i;
 
 	i = n;
-	push(a, b, 1);
+	while (n-- > 3)
+		push(a, b, 1);
 	pushswap(a, b, 3);
-	while (b->number[0] > a->number[0] && --i)
-		rotate(a, 'a', 1);
-	push(a, b, 0);
+	if (b->number[1] && b->number[1] < b->number[0])
+		swap(b, 'b', 1);
+	while (n-- > 0)
+	{	
+		while (b->number[0] > a->number[0] && --i)
+			rotate(a, 'a', 1);
+		push(a, b, 0);
+	}
 	while (a->number[0] > a->number[a->items - 1])
 		rotate(a, 'a', 1);
 }

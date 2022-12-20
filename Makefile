@@ -6,7 +6,7 @@
 #    By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 22:13:13 by jadithya          #+#    #+#              #
-#    Updated: 2022/10/02 14:52:51 by jadithya         ###   ########.fr        #
+#    Updated: 2022/12/20 16:32:23 by jadithya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = push_swap
 SRCS = push_swap.c\
 		checkparams.c\
 		operations.c\
+		moreoperations.c\
 		utils.c\
 		wrappers_1.c
 

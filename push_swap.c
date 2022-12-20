@@ -26,6 +26,8 @@ void	ft_freestacks(t_stack *a, t_stack *b)
 
 void	pushswap(t_stack *a, t_stack *b, int n)
 {
+	if (n == 1)
+		return ;
 	if (n == 2)
 	{
 		if (a->number[0] > a->number[1])
@@ -38,12 +40,10 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 		else
 			sort3_2(a);
 	}
-	else if (n == 4)
+	else if (n <= 5)
 		sort4(a, b, n);
 	else
-	{
 		generalsort(a, b, n);
-	}
 }
 
 void	test_stacks(t_stack *a, t_stack *b)
@@ -78,8 +78,8 @@ int	main(int argc, char **argv)
 	a = fillstack_a(argc, argv);
 	b = fillstack_b(argc);
 	pushswap(a, b, argc - 1);
-	test_stacks(a, b);
+	//test_stacks(a, b);
+	//ft_printf("\nSteps: %d\n", g_counter);
 	ft_freestacks(a, b);
-	ft_printf("\nSteps: %d\n", g_counter);
 	return (0);
 }
