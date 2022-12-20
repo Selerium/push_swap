@@ -53,17 +53,23 @@ void	sort3_2(t_stack *a)
 
 void	generalsort(t_stack *a, t_stack *b, int n)
 {
+	int	i;
+
 	if (n)
+	{
 		push(a, b, 1);
+		push(a, b, 1);
+		if (b->number[0] > b->number[1])
+			swap(b, 'b', 1);
+	}
 	while (a->items > 0)
 	{
 		push(a, b, 1);
-		while (b->number[0] > b->number[1])
+		i = 0;
+		while (b->number[0] > b->number[1] && ++i != b->items)
 		{
 			swap(b, 'b', 1);
-			if (b->items > 2)
-				rotate(b, 'b', 1);
-			test_stacks(a, b);
+			rotate(b, 'b', 1);
 		}
 		while (b->number[0] > b->number[b->items - 1])
 			rotate(b, 'b', 1);

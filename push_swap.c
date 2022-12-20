@@ -41,9 +41,9 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 	else if (n == 4)
 	{
 		push(a, b, 1);
-		pushswap(a, b, n - 1);
-		while (b->number[0] > a->number[0] && b->number[0]
-			< a->number[a->items - 1])
+		pushswap(a, b, 3);
+		while (b->number[0] > a->number[0] && a->number[0]
+			> a->number[a->items - 1])
 			rotate(a, 'a', 1);
 		push(a, b, 0);
 		while (a->number[0] > a->number[a->items - 1])
@@ -62,14 +62,14 @@ void	test_stacks(t_stack *a, t_stack *b)
 	int	i;
 
 	i = 0;
-	ft_printf("Stack A: %d items\n", a->items);
+	ft_printf("\nStack A: %d items\n", a->items);
 	while (i < a->items)
 	{
 		ft_printf("%d\n", a->number[i]);
 		i++;
 	}
 	i = 0;
-	ft_printf("Stack B: %d items\n", b->items);
+	ft_printf("\nStack B: %d items\n", b->items);
 	while (i < b->items)
 	{
 		ft_printf("%d\n", b->number[i]);
@@ -91,6 +91,6 @@ int	main(int argc, char **argv)
 	pushswap(a, b, argc - 1);
 	test_stacks(a, b);
 	ft_freestacks(a, b);
-	ft_printf("%d\n", g_counter);
+	ft_printf("\nSteps: %d\n", g_counter);
 	return (0);
 }
