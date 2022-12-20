@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//python3 python_visualizer.py `ruby -e "puts (-50..50).to_a.shuffle.join(' ')"`
+///usr/bin/python3 python_visualizer.py `ruby -e "puts
+//	(-50..50).to_a.shuffle.join(' ')"`
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -49,6 +50,7 @@ void	sort3_1(t_stack *a);
 void	sort3_2(t_stack *a);
 void	sort4(t_stack *a, t_stack *b, int n);
 void	generalsort(t_stack *a, t_stack *b, int n);
+void	insertionsort(t_stack *a, t_stack *b, int n);
 
 // operations:
 void	swap(t_stack *stack, char c, int opt);

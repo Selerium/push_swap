@@ -28,22 +28,22 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 {
 	if (n == 1)
 		return ;
-	if (n == 2)
-	{
-		if (a->number[0] > a->number[1])
-			swap(a, 'a', 1);
-	}
-	else if (n == 3)
-	{
-		if (a->number[0] > a->number[1])
-			sort3_1(a);
-		else
-			sort3_2(a);
-	}
-	else if (n <= 5)
-		sort4(a, b, n);
+	//if (n == 2)
+	//{
+	//	if (a->number[0] > a->number[1])
+	//		swap(a, 'a', 1);
+	//}
+	//else if (n == 3)
+	//{
+	//	if (a->number[0] > a->number[1])
+	//		sort3_1(a);
+	//	else
+	//		sort3_2(a);
+	//}
+	//else if (n <= 5)
+	//	sort4(a, b, n);
 	else
-		generalsort(a, b, n);
+		insertionsort(a, b, n);
 }
 
 void	test_stacks(t_stack *a, t_stack *b)
@@ -78,8 +78,8 @@ int	main(int argc, char **argv)
 	a = fillstack_a(argc, argv);
 	b = fillstack_b(argc);
 	pushswap(a, b, argc - 1);
-	//test_stacks(a, b);
-	//ft_printf("\nSteps: %d\n", g_counter);
+	test_stacks(a, b);
+	ft_printf("\nSteps: %d\n", g_counter);
 	ft_freestacks(a, b);
 	return (0);
 }
