@@ -28,6 +28,8 @@ typedef struct stack
 	int	items;
 }	t_stack;
 
+void	pushswap(t_stack *a, t_stack *b, int n);
+
 // stack construction:
 t_stack	*fillstack_a(int argc, char **argv);
 t_stack	*fillstack_b(int argc);
@@ -43,6 +45,7 @@ int		ft_median(t_stack *a);
 // wrappers:
 void	sort3_1(t_stack *a);
 void	sort3_2(t_stack *a);
+void	sort4(t_stack *a, t_stack *b, int n);
 void	generalsort(t_stack *a, t_stack *b, int n);
 
 // operations:

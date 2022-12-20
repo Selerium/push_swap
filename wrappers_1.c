@@ -51,6 +51,20 @@ void	sort3_2(t_stack *a)
 	}
 }
 
+void	sort4(t_stack *a, t_stack *b, int n)
+{
+	int	i;
+
+	i = n;
+	push(a, b, 1);
+	pushswap(a, b, 3);
+	while (b->number[0] > a->number[0] && --i)
+		rotate(a, 'a', 1);
+	push(a, b, 0);
+	while (a->number[0] > a->number[a->items - 1])
+		rotate(a, 'a', 1);
+}
+
 void	generalsort(t_stack *a, t_stack *b, int n)
 {
 	int	i;

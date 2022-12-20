@@ -39,18 +39,7 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 			sort3_2(a);
 	}
 	else if (n == 4)
-	{
-		push(a, b, 1);
-		pushswap(a, b, 3);
-		while (b->number[0] > a->number[0] && a->number[0]
-			> a->number[a->items - 1])
-			rotate(a, 'a', 1);
-		push(a, b, 0);
-		while (a->number[0] > a->number[a->items - 1])
-			rotate(a, 'a', 1);
-	}
-	else if (b->items == 1)
-		return ;
+		sort4(a, b, n);
 	else
 	{
 		generalsort(a, b, n);
