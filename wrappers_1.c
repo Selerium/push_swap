@@ -95,27 +95,3 @@ void	generalsort(t_stack *a, t_stack *b, int n)
 			rotate(b, 'b', 1);
 	}
 }
-
-void	insertionsort(t_stack *a, t_stack *b, int n)
-{
-	int	i;
-	int	j;
-
-	if (b->items != 0)
-		return ;
-	i = 0;
-	while (i++ < n)
-	{
-		j = 0;
-		while (++j < i)
-			rotate(a, 'a', 1);
-		while (j-- > 0)
-		{
-			if (a->number[1] < a->number[0])
-			{
-				swap(a, 'a', 1);
-				revrotate(a, 'a', 1);
-			}
-		}
-	}
-}

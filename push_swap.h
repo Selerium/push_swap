@@ -19,7 +19,6 @@
 # include<unistd.h>
 # include<sys/wait.h>
 # include<fcntl.h>
-
 # include"libft/libft.h"
 
 int		g_counter;
@@ -28,6 +27,7 @@ typedef struct stack
 {
 	int	*number;
 	int	top;
+	int	end;
 	int	items;
 }	t_stack;
 
@@ -44,13 +44,17 @@ void	ft_printexit(int n);
 void	test_stacks(t_stack *a, t_stack *b);
 void	ft_swap(t_stack *st, int i, int j);
 int		ft_median(t_stack *a);
+void	updatetop(t_stack *stack, int opt);
+void	updateend(t_stack *stack, int opt);
 
 // wrappers:
 void	sort3_1(t_stack *a);
 void	sort3_2(t_stack *a);
 void	sort4(t_stack *a, t_stack *b, int n);
 void	generalsort(t_stack *a, t_stack *b, int n);
-void	insertionsort(t_stack *a, t_stack *b, int n);
+void	insertionsorta(t_stack *a, t_stack *b, int n);
+//void	insertionsortb(t_stack *a, t_stack *b, int n);
+void	testsort(t_stack *a, t_stack *b, int n);
 
 // operations:
 void	swap(t_stack *stack, char c, int opt);

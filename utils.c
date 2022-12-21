@@ -39,6 +39,8 @@ t_stack	*fillstack_a(int argc, char **argv)
 		i++;
 	}
 	stack->items = argc - 1;
+	stack->top = 0;
+	stack->end = stack->items - 1;
 	return (stack);
 }
 
@@ -53,6 +55,8 @@ t_stack	*fillstack_b(int argc)
 	if (!stack->number)
 		ft_printexit(3);
 	stack->items = 0;
+	stack->top = 0;
+	stack->end = 0;
 	return (stack);
 }
 

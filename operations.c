@@ -39,6 +39,8 @@ void	rotate(t_stack *stack, char c, int opt)
 			ft_printf("r%c\n", c);
 			g_counter++;
 		}
+		updatetop(stack, 0);
+		updateend(stack, 0);
 	}
 }
 
@@ -56,12 +58,15 @@ void	revrotate(t_stack *stack, char c, int opt)
 			ft_printf("rr%c\n", c);
 			g_counter++;
 		}
+		updatetop(stack, 1);
+		updateend(stack, 1);
 	}
 }
 
 //can probably remove the third last line in each~
 void	push(t_stack *a, t_stack *b, int dir)
 {
+	g_counter++;
 	if (dir)
 	{
 		if (a->items > 0)
@@ -70,7 +75,6 @@ void	push(t_stack *a, t_stack *b, int dir)
 			b->items += 1;
 			revrotate(b, 'b', 0);
 			rotate(a, 'a', 0);
-			a->number[a->items - 1] = 0;
 			a->items -= 1;
 			ft_printf("p%c\n", 'b');
 		}
@@ -83,7 +87,6 @@ void	push(t_stack *a, t_stack *b, int dir)
 			a->items += 1;
 			revrotate(a, 'a', 0);
 			rotate(b, 'b', 0);
-			b->number[b->items - 1] = 0;
 			b->items -= 1;
 			ft_printf("p%c\n", 'a');
 		}

@@ -28,22 +28,24 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 {
 	if (n == 1)
 		return ;
-	//if (n == 2)
-	//{
-	//	if (a->number[0] > a->number[1])
-	//		swap(a, 'a', 1);
-	//}
-	//else if (n == 3)
-	//{
-	//	if (a->number[0] > a->number[1])
-	//		sort3_1(a);
-	//	else
-	//		sort3_2(a);
-	//}
-	//else if (n <= 5)
-	//	sort4(a, b, n);
+	if (n == 2)
+	{
+		if (a->number[0] > a->number[1])
+			swap(a, 'a', 1);
+	}
+	else if (n == 3)
+	{
+		if (a->number[0] > a->number[1])
+			sort3_1(a);
+		else
+			sort3_2(a);
+	}
+	else if (n < 5)
+		sort4(a, b, n);
 	else
-		insertionsort(a, b, n);
+		testsort(a, b, n);
+	//else
+	//	insertionsorta(a, b, n);
 }
 
 void	test_stacks(t_stack *a, t_stack *b)
@@ -51,14 +53,16 @@ void	test_stacks(t_stack *a, t_stack *b)
 	int	i;
 
 	i = 0;
-	ft_printf("\nStack A: %d items\n", a->items);
+	ft_printf("\nStack A: %d items | top: %d, end: %d\n",
+		a->items, a->top, a->end);
 	while (i < a->items)
 	{
 		ft_printf("%d\n", a->number[i]);
 		i++;
 	}
 	i = 0;
-	ft_printf("\nStack B: %d items\n", b->items);
+	ft_printf("\nStack B: %d items | top: %d, end: %d\n",
+		b->items, b->top, b->end);
 	while (i < b->items)
 	{
 		ft_printf("%d\n", b->number[i]);

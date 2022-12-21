@@ -6,7 +6,7 @@
 #    By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 22:13:13 by jadithya          #+#    #+#              #
-#    Updated: 2022/12/20 16:32:23 by jadithya         ###   ########.fr        #
+#    Updated: 2022/12/21 21:45:21 by jadithya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SRCS = push_swap.c\
 		operations.c\
 		moreoperations.c\
 		utils.c\
-		wrappers_1.c
+		wrappers_1.c\
+		insertion.c
 
 CC = gcc
 
