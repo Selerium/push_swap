@@ -38,9 +38,9 @@ void	rotate(t_stack *stack, char c, int opt)
 		{
 			ft_printf("r%c\n", c);
 			g_counter++;
+			updatetop(stack, 1);
+			updateend(stack, 1);
 		}
-		updatetop(stack, 0);
-		updateend(stack, 0);
 	}
 }
 
@@ -57,9 +57,9 @@ void	revrotate(t_stack *stack, char c, int opt)
 		{
 			ft_printf("rr%c\n", c);
 			g_counter++;
+			updatetop(stack, 0);
+			updateend(stack, 0);
 		}
-		updatetop(stack, 1);
-		updateend(stack, 1);
 	}
 }
 

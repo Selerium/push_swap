@@ -52,9 +52,10 @@ void	sort3_1(t_stack *a);
 void	sort3_2(t_stack *a);
 void	sort4(t_stack *a, t_stack *b, int n);
 void	generalsort(t_stack *a, t_stack *b, int n);
-void	insertionsorta(t_stack *a, t_stack *b, int n);
-//void	insertionsortb(t_stack *a, t_stack *b, int n);
-void	testsort(t_stack *a, t_stack *b, int n);
+void	testsort(t_stack *a, t_stack *b, int n, int opt);
+int		middle(t_stack *a, int n);
+void	boopbeep(t_stack *a, t_stack *b, int n, int opt);
+void	beepboop(t_stack *a, t_stack *b, int n, int opt);
 
 // operations:
 void	swap(t_stack *stack, char c, int opt);

@@ -96,3 +96,29 @@ int	ft_median(t_stack *a)
 	}
 	return ((max - min) / 2);
 }
+
+int	middle(t_stack *a, int n)
+{
+	int	i;
+	int	j;
+	int	count;
+
+	i = -1;
+	while (++i < a->items)
+	{
+		j = -1;
+		count = 0;
+		while (++j < a->items)
+		{
+			if (a->number[j] < a->number[i])
+				count++;
+		}
+		if (count == n / 2)
+			break ;
+	}
+	return (a->number[i]);
+	//while (i < a->items / 2 && i-- > 0)
+	//	rotate(a, 'a', 1);
+	//while (i >= a->items / 2 && i++ < a->items)
+	//	revrotate(a, 'a', 1);
+}

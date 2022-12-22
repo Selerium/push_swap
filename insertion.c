@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 21:40:03 by jadithya          #+#    #+#             */
-/*   Updated: 2022/12/21 22:22:46 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/12/22 19:25:18 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,44 +43,14 @@ void	insertionsorta(t_stack *a, t_stack *b, int n)
 	rotate(a, 'a', 1);
 }
 
-//void	insertionsortb(t_stack *a, t_stack *b, int n)
-//{
-//	int	i;
-//	int	j;
-//	int	k;
-
-//	i = 0;
-//	while (i++ < n - 1)
-//	{
-//		k = 0;
-//		j = i;
-//		rotate(b, 'b', 1);
-//		while (j-- > 0)
-//		{
-//			if (b->number[0] > b->number[b->items - 1])
-//			{
-//				revrotate(b, 'b', 1);
-//				swap(b, 'b', 1);
-//				k++;
-//			}
-//		}
-//		while (k < b->items / 2 && k-- > 0)
-//			rotate(b, 'b', 1);
-//		while (k-- > 1)
-//			revrotate(b, 'b', 1);
-//	}
-//	rotate(b, 'b', 1);
-//	while (b->items > 0)
-//		push(a, b, 0);
-//}
-
-void	testsort(t_stack *a, t_stack *b, int n)
+void	testsort(t_stack *a, t_stack *b, int n, int opt)
 {
 	int	j;
 	int	small;
 
-	while (n && a->items > 3)
+	while (a->items > 3)
 	{
+		a->top = 0;
 		j = 0;
 		small = 0;
 		while (++j < a->items)
@@ -88,14 +58,53 @@ void	testsort(t_stack *a, t_stack *b, int n)
 			if (a->number[j] < a->number[small])
 				small = j;
 		}
-		ft_printf("\nSmall: %d\n", a->number[small]);
 		while (small < a->items / 2 && small-- > 0)
 			rotate(a, 'a', 1);
-		while (small > a->items / 2 && small++ < a->items)
+		while (small >= a->items / 2 && small++ < a->items)
 			revrotate(a, 'a', 1);
-		push(a, b, 1);
+		push(a, b, opt);
 	}
 	pushswap(a, b, 3);
-	while (b->items > 0)
-		push(a, b, 0);
+	while (n-- > 0)
+		push(a, b, 1 - opt);
+}
+		//while (small < a->top)
+		//	revrotate(a, 'a', 1);
+		//while (small > a->top)
+		//	rotate(a, 'a', 1);
+	//while (n-- >= 0)
+	//	push(a, b, 1);
+
+void	boopbeep(t_stack *a, t_stack *b, int n, int opt)
+{
+	int	x;
+
+	x = middle(a, n);
+	while (b->items < n / 2)
+	{
+		if (a->number[0] < x)
+			push(a, b, 1);
+		else
+			rotate(a, 'a', 1);
+	}
+	if (n > 3)
+		boopbeep(a, b, n / 2, opt);
+	testsort(a, b, (n / 2) - 3, opt);
+}
+
+void	beepboop(t_stack *a, t_stack *b, int n, int opt)
+{
+	int	x;
+
+	x = middle(a, n);
+	while (b->items < n / 2)
+	{
+		if (a->number[0] > x)
+			push(a, b, 1);
+		else
+			rotate(a, 'a', 1);
+	}
+	if (n > 3)
+		boopbeep(a, b, n / 2, opt);
+	testsort(a, b, (n / 2) - 3, opt);
 }

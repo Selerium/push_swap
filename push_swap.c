@@ -43,9 +43,13 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 	else if (n < 5)
 		sort4(a, b, n);
 	else
-		testsort(a, b, n);
-	//else
-	//	insertionsorta(a, b, n);
+	{
+		boopbeep(a, b, n, 1);
+		//beepboop(b, a, n / 2, 0);
+		//while (b->items)
+		//	push(a, b, 0);
+		//boopbeep(b, a, n, 1);
+	}
 }
 
 void	test_stacks(t_stack *a, t_stack *b)
@@ -83,7 +87,7 @@ int	main(int argc, char **argv)
 	b = fillstack_b(argc);
 	pushswap(a, b, argc - 1);
 	test_stacks(a, b);
-	ft_printf("\nSteps: %d\n", g_counter);
+	//ft_printf("\nSteps: %d\n", g_counter);
 	ft_freestacks(a, b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 14:58:11 by jadithya          #+#    #+#             */
-/*   Updated: 2022/12/21 20:19:15 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/12/22 19:25:19 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ void	updatetop(t_stack *stack, int opt)
 
 void	updateend(t_stack *stack, int opt)
 {
-	if (opt == 0)
+	if (opt == 1)
 	{
 		if (--(stack->end) < 0)
 			stack->end += stack->items;
 	}
-	else if (opt == 1)
+	else if (opt == 0)
 	{
 		if (++(stack->end) >= stack->items)
 			stack->end = 0;
