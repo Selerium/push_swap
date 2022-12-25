@@ -44,9 +44,10 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 		sort4(a, b, n);
 	else
 	{
+		//testsort(a, b, n, 1);
 		boopbeep(a, b, n, 1);
-		while (b->items)
-			push(a, b, 0);
+		//while (b->items)
+		//	push(a, b, 0);
 	}
 }
 

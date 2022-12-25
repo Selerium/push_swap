@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 21:40:03 by jadithya          #+#    #+#             */
-/*   Updated: 2022/12/25 19:48:01 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/12/25 21:25:45 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	testsort(t_stack *a, t_stack *b, int n, int opt)
 	//ft_printf("\n------\n");
 	//test_stacks(a, b);
 	//ft_printf("\n------\n");
-	while (a->items > n / 2)
+	while (a->items > 3)
 	{
 		a->top = 0;
 		j = 0;
@@ -96,16 +96,26 @@ void	boopbeep(t_stack *a, t_stack *b, int n, int opt)
 		else
 			rotate(a, 'a', 1);
 	}
-	if (n > 10)
+	if (hold > 10)
 	{
 		boopbeep(a, b, n - hold, opt);
-		testsort(a, b, (hold), opt);
-		while (hold--)
-			push(a, b, 0);
 	}
 	testsort(a, b, n - hold, opt);
+	while (hold--)
+		push(a, b, 0);
 }
 
+	//if (hold <= 10)
+	//	testsort(a, b, (n - hold), opt);
+	//else
+	//{
+	//	boopbeep(a, b, n - hold, opt);
+	//	testsort(a, b, (n - hold), opt);
+	//	x = hold;
+	//	while (hold--)
+	//		push(a, b, 0);
+	//	testsort(a, b, x, opt);
+	//}
 //void	beepboop(t_stack *b, t_stack *a, int n, int opt)
 //{
 //	int	x;
