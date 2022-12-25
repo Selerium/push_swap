@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 21:40:03 by jadithya          #+#    #+#             */
-/*   Updated: 2022/12/22 19:25:18 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/12/25 16:06:51 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	boopbeep(t_stack *a, t_stack *b, int n, int opt)
 	int	x;
 
 	x = middle(a, n);
-	while (b->items < n / 2)
+	while (b->items < (n / 2))
 	{
 		if (a->number[0] < x)
 			push(a, b, 1);
@@ -92,19 +92,19 @@ void	boopbeep(t_stack *a, t_stack *b, int n, int opt)
 	testsort(a, b, (n / 2) - 3, opt);
 }
 
-void	beepboop(t_stack *a, t_stack *b, int n, int opt)
+void	beepboop(t_stack *b, t_stack *a, int n, int opt)
 {
 	int	x;
 
-	x = middle(a, n);
-	while (b->items < n / 2)
+	x = middle(b, n);
+	while (b->items > n / 2)
 	{
 		if (a->number[0] > x)
 			push(a, b, 1);
 		else
-			rotate(a, 'a', 1);
+			rotate(b, 'b', 1);
 	}
 	if (n > 3)
-		boopbeep(a, b, n / 2, opt);
-	testsort(a, b, (n / 2) - 3, opt);
+		beepboop(b, a, n / 2, opt);
+	testsort(b, a, (n / 2) - 3, opt);
 }
