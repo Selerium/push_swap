@@ -45,10 +45,8 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 	else
 	{
 		boopbeep(a, b, n, 1);
-		//beepboop(b, a, n / 2, 0);
-		//while (b->items)
-		//	push(a, b, 0);
-		//boopbeep(b, a, n, 1);
+		while (b->items)
+			push(a, b, 0);
 	}
 }
 
