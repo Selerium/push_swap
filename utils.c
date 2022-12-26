@@ -122,3 +122,18 @@ int	middle(t_stack *a, int n)
 	//while (i >= a->items / 2 && i++ < a->items)
 	//	revrotate(a, 'a', 1);
 }
+
+int	max(t_stack *a)
+{
+	int	i;
+	int	max;
+
+	i = 0;
+	max = 0;
+	while (++i < a->items)
+	{
+		if (a->number[i] > a->number[max])
+			max = i;
+	}
+	return (max);
+}

@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 21:40:03 by jadithya          #+#    #+#             */
-/*   Updated: 2022/12/25 21:25:45 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/12/26 20:34:01 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@
 //	rotate(a, 'a', 1);
 //}
 
+	//ft_printf("\ntest %d %d %d\n", n, a->items, a->items + b->items);
+	//ft_printf("\n------\n");
+	//test_stacks(a, b);
+	//ft_printf("\n------\n");
 void	testsort(t_stack *a, t_stack *b, int n, int opt)
 {
 	int	j;
 	int	small;
 
-	//ft_printf("\ntest %d %d %d\n", n, a->items, a->items + b->items);
-	//ft_printf("\n------\n");
-	//test_stacks(a, b);
-	//ft_printf("\n------\n");
 	while (a->items > 3)
 	{
 		a->top = 0;
@@ -96,13 +96,35 @@ void	boopbeep(t_stack *a, t_stack *b, int n, int opt)
 		else
 			rotate(a, 'a', 1);
 	}
-	if (hold > 10)
+	if (hold > 3)
 	{
 		boopbeep(a, b, n - hold, opt);
 	}
-	testsort(a, b, n - hold, opt);
-	while (hold--)
+	else
+		testsort(a, b, n - hold, opt);
+	//test_stacks(a, b);
+	beepboop(b, a, hold, opt);
+}
+
+void	beepboop(t_stack *b, t_stack *a, int n, int opt)
+{
+	int	i;
+	int	x;
+
+	i = 0;
+	if (a->items == 2039 && opt)
+		return ;
+	while (i++ < n)
+	{
+		x = max(b);
+		//ft_printf("%d %d\n", b->number[x], x);
+		while (x < b->items / 2 && x-- > 0) 
+			rotate(b, 'b', 1);
+		while (x >= b->items / 2 && x++ < b->items)
+			revrotate(b, 'b', 1);
+		//ft_printf("%d\n", b->number[0]);
 		push(a, b, 0);
+	}
 }
 
 	//if (hold <= 10)
@@ -116,19 +138,3 @@ void	boopbeep(t_stack *a, t_stack *b, int n, int opt)
 	//		push(a, b, 0);
 	//	testsort(a, b, x, opt);
 	//}
-//void	beepboop(t_stack *b, t_stack *a, int n, int opt)
-//{
-//	int	x;
-
-//	x = middle(b, n);
-//	while (b->items > n / 2)
-//	{
-//		if (a->number[0] > x)
-//			push(a, b, 1);
-//		else
-//			rotate(b, 'b', 1);
-//	}
-//	if (n > 3)
-//		beepboop(b, a, n / 2, opt);
-//	testsort(b, a, (n / 2) - 3, opt);
-//}

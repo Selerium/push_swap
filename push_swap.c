@@ -44,7 +44,7 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 		sort4(a, b, n);
 	else
 	{
-		//testsort(a, b, n, 1);
+		//testsort(a, b, n / 2, 1);
 		boopbeep(a, b, n, 1);
 		//while (b->items)
 		//	push(a, b, 0);
@@ -85,7 +85,7 @@ int	main(int argc, char **argv)
 	a = fillstack_a(argc, argv);
 	b = fillstack_b(argc);
 	pushswap(a, b, argc - 1);
-	test_stacks(a, b);
+	//test_stacks(a, b);
 	//ft_printf("\nSteps: %d\n", g_counter);
 	ft_freestacks(a, b);
 	return (0);
