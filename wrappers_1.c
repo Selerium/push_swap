@@ -12,15 +12,6 @@
 
 #include"push_swap.h"
 
-void	ft_swap(t_stack *st, int i, int j)
-{
-	int	temp;
-
-	temp = st->number[i];
-	st->number[i] = st->number[j];
-	st->number[j] = temp;
-}
-
 void	sort3_1(t_stack *a)
 {
 	if (a->number[0] < a->number[2])

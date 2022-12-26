@@ -43,34 +43,7 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 	else if (n < 5)
 		sort4(a, b, n);
 	else
-	{
-		//testsort(a, b, n / 2, 1);
-		boopbeep(a, b, n, 1);
-		//while (b->items)
-		//	push(a, b, 0);
-	}
-}
-
-void	test_stacks(t_stack *a, t_stack *b)
-{
-	int	i;
-
-	i = 0;
-	ft_printf("\nStack A: %d items | top: %d, end: %d\n",
-		a->items, a->top, a->end);
-	while (i < a->items)
-	{
-		ft_printf("%d\n", a->number[i]);
-		i++;
-	}
-	i = 0;
-	ft_printf("\nStack B: %d items | top: %d, end: %d\n",
-		b->items, b->top, b->end);
-	while (i < b->items)
-	{
-		ft_printf("%d\n", b->number[i]);
-		i++;
-	}
+		boopbeep(a, b, n);
 }
 
 int	main(int argc, char **argv)
@@ -85,8 +58,6 @@ int	main(int argc, char **argv)
 	a = fillstack_a(argc, argv);
 	b = fillstack_b(argc);
 	pushswap(a, b, argc - 1);
-	//test_stacks(a, b);
-	//ft_printf("\nSteps: %d\n", g_counter);
 	ft_freestacks(a, b);
 	return (0);
 }

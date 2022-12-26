@@ -37,25 +37,23 @@ void	pushswap(t_stack *a, t_stack *b, int n);
 t_stack	*fillstack_a(int argc, char **argv);
 t_stack	*fillstack_b(int argc);
 
+// view stack:
+void	test_stacks(t_stack *a, t_stack *b);
+
 // utilities:
 void	checkparams(int argc, char **argv);
 void	swapitems(t_stack *stack, int top, int i);
 void	ft_printexit(int n);
-void	test_stacks(t_stack *a, t_stack *b);
-void	ft_swap(t_stack *st, int i, int j);
-int		ft_median(t_stack *a);
-void	updatetop(t_stack *stack, int opt);
-void	updateend(t_stack *stack, int opt);
+int		middle(t_stack *a, int n);
+int		max(t_stack *a);
+void	testsort(t_stack *a, t_stack *b, int n, int opt);
 
 // wrappers:
 void	sort3_1(t_stack *a);
 void	sort3_2(t_stack *a);
 void	sort4(t_stack *a, t_stack *b, int n);
-void	generalsort(t_stack *a, t_stack *b, int n);
-void	testsort(t_stack *a, t_stack *b, int n, int opt);
-int		middle(t_stack *a, int n);
-void	boopbeep(t_stack *a, t_stack *b, int n, int opt);
-void	beepboop(t_stack *a, t_stack *b, int n, int opt);
+void	boopbeep(t_stack *a, t_stack *b, int n);
+void	beepboop(t_stack *a, t_stack *b, int n);
 
 // operations:
 void	swap(t_stack *stack, char c, int opt);

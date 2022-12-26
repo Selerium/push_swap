@@ -18,10 +18,7 @@ void	swap(t_stack *stack, char c, int opt)
 	{
 		swapitems(stack, 0, 1);
 		if (opt)
-		{
 			ft_printf("s%c\n", c);
-			g_counter++;
-		}
 	}
 }
 
@@ -35,12 +32,7 @@ void	rotate(t_stack *stack, char c, int opt)
 		while (--i > 0)
 			swapitems(stack, 0, i);
 		if (opt)
-		{
 			ft_printf("r%c\n", c);
-			g_counter++;
-			updatetop(stack, 1);
-			updateend(stack, 1);
-		}
 	}
 }
 
@@ -54,19 +46,13 @@ void	revrotate(t_stack *stack, char c, int opt)
 		while (++i < stack->items)
 			swapitems(stack, 0, i);
 		if (opt)
-		{
 			ft_printf("rr%c\n", c);
-			g_counter++;
-			updatetop(stack, 0);
-			updateend(stack, 0);
-		}
 	}
 }
 
 //can probably remove the third last line in each~
 void	push(t_stack *a, t_stack *b, int dir)
 {
-	g_counter++;
 	if (dir)
 	{
 		if (a->items > 0)
