@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 21:40:03 by jadithya          #+#    #+#             */
-/*   Updated: 2022/12/26 21:28:12 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/12/26 22:11:02 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,11 @@ void	testsort(t_stack *a, t_stack *b, int n, int opt)
 void	boopbeep(t_stack *a, t_stack *b, int n)
 {
 	int	x;
+	int	y;
 	int	hold;
 
 	x = middle(a, n);
+	y = 125;
 	hold = 0;
 	while (hold < (n / 2))
 	{
@@ -52,13 +54,13 @@ void	boopbeep(t_stack *a, t_stack *b, int n)
 			push(a, b, 1);
 			hold++;
 		}
+		else if (b->items > 2 && 0 && b->number[0] < y)
+			m_rotate(a, b);
 		else
 			rotate(a, 'a', 1);
 	}
 	if (hold > 3)
-	{
 		boopbeep(a, b, n - hold);
-	}
 	else
 		testsort(a, b, n - hold, 1);
 	beepboop(b, a, hold);
