@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 21:40:03 by jadithya          #+#    #+#             */
-/*   Updated: 2022/12/26 22:11:02 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/12/27 19:36:23 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	boopbeep(t_stack *a, t_stack *b, int n)
 		else
 			rotate(a, 'a', 1);
 	}
+	cleanup(a, b, hold);
 	if (hold > 3)
 		boopbeep(a, b, n - hold);
 	else
@@ -75,7 +76,7 @@ void	beepboop(t_stack *b, t_stack *a, int n)
 	while (i++ < n)
 	{
 		x = max(b);
-		while (x < b->items / 2 && x-- > 0) 
+		while (x < b->items / 2 && x-- > 0)
 			rotate(b, 'b', 1);
 		while (x >= b->items / 2 && x++ < b->items)
 			revrotate(b, 'b', 1);

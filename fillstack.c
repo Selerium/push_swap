@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 21:15:00 by jadithya          #+#    #+#             */
-/*   Updated: 2022/12/26 21:15:32 by jadithya         ###   ########.fr       */
+/*   Updated: 2022/12/27 19:38:05 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,24 @@ t_stack	*fillstack_b(int argc)
 	stack->top = 0;
 	stack->end = 0;
 	return (stack);
+}
+
+void	cleanup(t_stack *a, t_stack *b, int hold)
+{
+	int	x;
+	int	i;
+
+	x = middle(b, hold);
+	i = 0;
+	while (i++ < hold)
+	{
+		if (b->number[0] > x)
+			push(a, b, 0);
+		else
+			rotate(b, 'b', 1);
+	}
+	while (i-- > hold / 2)
+		push(a, b, 1);
 }
 
 void	test_stacks(t_stack *a, t_stack *b)

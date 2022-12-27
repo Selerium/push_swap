@@ -46,6 +46,7 @@ void	swapitems(t_stack *stack, int top, int i);
 void	ft_printexit(int n);
 int		middle(t_stack *a, int n);
 int		max(t_stack *a);
+void	cleanup(t_stack *a, t_stack *b, int hold);
 void	testsort(t_stack *a, t_stack *b, int n, int opt);
 
 // wrappers:
