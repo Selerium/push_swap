@@ -40,8 +40,8 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 		else
 			sort3_2(a);
 	}
-	else if (n < 5)
-		sort4(a, b, n);
+	//else if (n < 5)
+	//	sort4(a, b, n);
 	else
 		boopbeep(a, b, n);
 }
@@ -50,14 +50,25 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
+	char	**split;
+	int		n;
 
-	g_counter = 0;
+	n = 0;
 	checkparams(argc, argv);
 	if (argc == 2)
-		ft_printexit(4);
-	a = fillstack_a(argc, argv);
-	b = fillstack_b(argc);
-	pushswap(a, b, argc - 1);
+	{
+		split = ft_split(argv[1], ' ');
+		while (split[n])
+			n++;
+		if (n < 2)
+			ft_free(split);
+	}
+	if (n != 0)
+		checkfill(n, split);
+	else
+		checkfill(argc, argv);
+	if (checksort(a) == 1)
+		pushswap(a, b, argc - 1);
 	ft_freestacks(a, b);
 	return (0);
 }

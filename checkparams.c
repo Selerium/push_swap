@@ -49,18 +49,64 @@ void	checkparams(int argc, char **argv)
 
 	i = 1;
 	if (argc < 2)
-		ft_printexit(1);
-	while (i < argc)
+		ft_printexit(2);
+	if (argc < 3)
+		checkstring(argv[1]);
+	else
 	{
-		if (checknum(argv[i]) != 0 || checkword(argv[i]) != 0)
-			ft_printexit(2);
-		j = i + 1;
-		while (j < argc)
+		while (i < argc)
 		{
-			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+			if (checknum(argv[i]) != 0 || checkword(argv[i]) != 0)
 				ft_printexit(2);
-			j++;
+			j = i + 1;
+			while (j < argc)
+			{
+				if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+					ft_printexit(2);
+				j++;
+			}
+			i++;
 		}
-		i++;
+	}
+}
+
+int	checksort(t_stack *a)
+{
+	int	i;
+	int	j;
+	int	flag;
+
+	i = -1;
+	flag = 0;
+	while (++i < a->items && flag == 0)
+	{
+		j = i;
+		while (++j < a->items && flag == 0)
+		{
+			if (a->number[i] > a->number[j])
+				flag = 1;
+		}
+	}
+	return (flag);
+}
+
+void	checkstring(char *array)
+{
+	char	**split;
+	int		n;
+
+	split = ft_split(array, ' ');
+	n = 0;
+	while (split[n])
+		n++;
+	if (n < 2)
+		ft_printexit(2);
+	else
+		checkparams(n, split);
+	n = 0;
+	while (split[n])
+	{
+		free(split[n]);
+		n++;
 	}
 }

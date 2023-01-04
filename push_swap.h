@@ -42,12 +42,15 @@ void	test_stacks(t_stack *a, t_stack *b);
 
 // utilities:
 void	checkparams(int argc, char **argv);
+int		checksort(t_stack *a);
+void	checkstring(char *array);
 void	swapitems(t_stack *stack, int top, int i);
 void	ft_printexit(int n);
 int		middle(t_stack *a, int n);
 int		max(t_stack *a);
 void	cleanup(t_stack *a, t_stack *b, int hold);
 void	testsort(t_stack *a, t_stack *b, int n, int opt);
+void	ft_free(char **string);
 
 // wrappers:
 void	sort3_1(t_stack *a);

@@ -74,3 +74,17 @@ int	max(t_stack *a)
 	}
 	return (max);
 }
+
+void	ft_free(char **string)
+{
+	int	i;
+
+	i = 0;
+	while (string[i])
+	{
+		free(string[i]);
+		i++;
+	}
+	free(string);
+	ft_printexit(4);
+}

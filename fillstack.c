@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 21:15:00 by jadithya          #+#    #+#             */
-/*   Updated: 2022/12/27 19:38:05 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/01/04 18:11:39 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,9 @@ void	test_stacks(t_stack *a, t_stack *b)
 		ft_printf("%d\n", b->number[i]);
 		i++;
 	}
+}
+
+void	checkfill(int n, char **array)
+{
+	
 }

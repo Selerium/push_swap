@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 21:40:03 by jadithya          #+#    #+#             */
-/*   Updated: 2022/12/27 19:36:23 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/01/03 13:57:41 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	boopbeep(t_stack *a, t_stack *b, int n)
 		else
 			rotate(a, 'a', 1);
 	}
-	cleanup(a, b, hold);
+	//cleanup(a, b, hold);
 	if (hold > 3)
 		boopbeep(a, b, n - hold);
 	else
