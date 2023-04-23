@@ -78,6 +78,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
+	int		i;
 
 	g_counter = 0;
 	checkparams(argc, argv);
@@ -85,9 +86,12 @@ int	main(int argc, char **argv)
 		ft_printexit(4);
 	a = fillstack_a(argc, argv);
 	b = fillstack_b(argc);
-	pushswap(a, b, argc - 1);
-	test_stacks(a, b);
-	//ft_printf("\nSteps: %d\n", g_counter);
+	i = 0;
+	while (i < argc - 1 && a->number[i] < a->number[i + 1])
+		i++;
+	if (i != argc - 2 && a->number[i] < a->number[i + 1])
+		pushswap(a, b, argc - 1);
+	//test_stacks(a, b);
 	ft_freestacks(a, b);
 	return (0);
 }
