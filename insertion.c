@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 21:40:03 by jadithya          #+#    #+#             */
-/*   Updated: 2023/04/23 19:04:14 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/04/23 20:53:06 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	insertionsorta(t_stack *a, t_stack *b, int n)
 	int	j;
 	int	k;
 
-	if (b->items > 0)
+	if (b->items < 0)
 		return ;
 	i = 0;
 	while (i++ < n - 1)
@@ -94,11 +94,13 @@ void	boopbeep(t_stack *a, t_stack *b, int n, int opt)
 	}
 	//ft_printf("test %d\n", n / 2);
 	//test_stacks(a, b);
-	if (n > 4)
+	if (n > 5)
 		boopbeep(a, b, n / 2, opt);
-	testsort(a, b, (n / 2) - 3, opt);
-	while (hold--)
-		push(a, b, 0);
+	//else
+	//	sort4(a, b, n);
+	//testsort(a, b, (n / 2) - 3, opt);
+	//while (hold--)
+	//	push(a, b, 0);
 }
 
 void	beepboop(t_stack *b, t_stack *a, int n, int opt)

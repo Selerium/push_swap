@@ -12,15 +12,6 @@
 
 #include"push_swap.h"
 
-void	swapitems(t_stack *stack, int top, int i)
-{
-	int	temp;
-
-	temp = stack->number[top];
-	stack->number[top] = stack->number[i];
-	stack->number[i] = temp;
-}
-
 t_stack	*fillstack_a(int argc, char **argv)
 {
 	int		i;

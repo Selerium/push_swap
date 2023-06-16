@@ -12,6 +12,15 @@
 
 #include"push_swap.h"
 
+void	swapitems(t_stack *stack, int top, int i)
+{
+	int	temp;
+
+	temp = stack->number[top];
+	stack->number[top] = stack->number[i];
+	stack->number[i] = temp;
+}
+
 void	ft_freestacks(t_stack *a, t_stack *b)
 {
 	if (a->number)
@@ -78,7 +87,6 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	int		i;
 
 	g_counter = 0;
 	checkparams(argc, argv);
@@ -86,12 +94,21 @@ int	main(int argc, char **argv)
 		ft_printexit(4);
 	a = fillstack_a(argc, argv);
 	b = fillstack_b(argc);
-	i = 0;
-	while (i < argc - 1 && a->number[i] < a->number[i + 1])
-		i++;
-	if (i != argc - 2 && a->number[i] < a->number[i + 1])
+	if (complete(a, argc) == 0)
 		pushswap(a, b, argc - 1);
 	//test_stacks(a, b);
 	ft_freestacks(a, b);
 	return (0);
+}
+
+int	complete(t_stack *a, int argc)
+{
+	int	i;
+
+	i = 0;
+	while (i < argc - 1 && a->number[i] < a->number[i + 1])
+		i++;
+	if (i != argc - 2)
+		return (0);
+	return (1);
 }

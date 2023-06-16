@@ -46,6 +46,7 @@ void	ft_swap(t_stack *st, int i, int j);
 int		ft_median(t_stack *a);
 void	updatetop(t_stack *stack, int opt);
 void	updateend(t_stack *stack, int opt);
+int		complete(t_stack *a, int argc);
 
 // wrappers:
 void	sort3_1(t_stack *a);

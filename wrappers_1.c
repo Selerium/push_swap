@@ -63,7 +63,7 @@ void	sort4(t_stack *a, t_stack *b, int n)
 		swap(b, 'b', 1);
 	while (n-- > 0)
 	{	
-		while (b->number[0] > a->number[0] && --i)
+		while (b->number[0] > a->number[0])
 			rotate(a, 'a', 1);
 		push(a, b, 0);
 	}
