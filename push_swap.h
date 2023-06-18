@@ -71,6 +71,7 @@ void	updateend(t_stack *stack, int opt);
 
 //sorting:
 int		find_median(t_stack *a);
+void	sort_5(t_stack *a, t_stack *b, int n);
 void	sort(t_stack *a, t_stack *b, int n);
 
 #endif

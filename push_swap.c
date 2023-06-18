@@ -41,8 +41,8 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 		else
 			sort3_2(a, b);
 	}
-	else
-		sort(a, b, n);
+	else if (n <= 5)
+		sort_5(a, b, n);
 }
 
 int	main(int argc, char **argv)
@@ -59,6 +59,7 @@ int	main(int argc, char **argv)
 	set_chunk_size(a, argc - 1);
 	if (complete(a, argc - 1) == 0)
 		pushswap(a, b, argc - 1);
+	test_stacks(a, b);
 	ft_freestacks(a, b);
 	return (0);
 }
