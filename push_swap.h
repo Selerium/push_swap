@@ -29,34 +29,32 @@ typedef struct stack
 	int	top;
 	int	end;
 	int	items;
+	int	chunk_size;
 }	t_stack;
 
 void	pushswap(t_stack *a, t_stack *b, int n);
+void	test_stacks(t_stack *a, t_stack *b);
 
-// stack construction:
+// stack 'n errors:
 t_stack	*fillstack_a(int argc, char **argv);
 t_stack	*fillstack_b(int argc);
+void	ft_printexit(int n);
+
+//checking parameters:
+int		checknum(char *num);
+int		checkword(char *num);
+void	checkparams(int argc, char **argv);
 
 // utilities:
-void	checkparams(int argc, char **argv);
 void	swapitems(t_stack *stack, int top, int i);
-void	ft_printexit(int n);
-void	test_stacks(t_stack *a, t_stack *b);
-void	ft_swap(t_stack *st, int i, int j);
-int		ft_median(t_stack *a);
-void	updatetop(t_stack *stack, int opt);
-void	updateend(t_stack *stack, int opt);
 int		complete(t_stack *a, int argc);
+void	ft_freestacks(t_stack *a, t_stack *b);
+void	test_stacks(t_stack *a, t_stack *b);
 
 // wrappers:
-void	sort3_1(t_stack *a);
-void	sort3_2(t_stack *a);
-void	sort4(t_stack *a, t_stack *b, int n);
-void	generalsort(t_stack *a, t_stack *b, int n);
-void	testsort(t_stack *a, t_stack *b, int n, int opt);
-int		middle(t_stack *a, int n);
-void	boopbeep(t_stack *a, t_stack *b, int n, int opt);
-void	beepboop(t_stack *a, t_stack *b, int n, int opt);
+void	ft_swap(t_stack *st, int i, int j);
+void	sort3_1(t_stack *a, t_stack *b);
+void	sort3_2(t_stack *a, t_stack *b);
 
 // operations:
 void	swap(t_stack *stack, char c, int opt);
@@ -68,5 +66,11 @@ void	push(t_stack *a, t_stack *b, int dir);
 void	m_swap(t_stack *a, t_stack *b);
 void	m_rotate(t_stack *a, t_stack *b);
 void	m_revrotate(t_stack *a, t_stack *b);
+void	updatetop(t_stack *stack, int opt);
+void	updateend(t_stack *stack, int opt);
+
+//sorting:
+int		find_median(t_stack *a);
+void	sort(t_stack *a, t_stack *b, int n);
 
 #endif

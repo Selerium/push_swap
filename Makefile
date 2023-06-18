@@ -6,7 +6,7 @@
 #    By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 22:13:13 by jadithya          #+#    #+#              #
-#    Updated: 2022/12/21 21:45:21 by jadithya         ###   ########.fr        #
+#    Updated: 2023/06/18 15:28:05 by jadithya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,10 @@ SRCS = push_swap.c\
 		checkparams.c\
 		operations.c\
 		moreoperations.c\
-		utils.c\
-		wrappers_1.c\
-		insertion.c
+		utilities.c\
+		wrappers.c\
+		stack_n_errors.c\
+		sorting.c\
 
 CC = gcc
 
@@ -40,7 +41,7 @@ bonus:
 all: $(NAME)
 
 norm: 
-	norminette
+	python3 -m norminette *.c push_swap.h libft/*.c libft/libft.h
 
 normps:
 	norminette push_swap.c push_swap.h
