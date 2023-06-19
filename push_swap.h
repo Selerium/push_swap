@@ -23,13 +23,19 @@
 
 int		g_counter;
 
+typedef struct number
+{
+	int	value;
+	int	position;
+}	t_number;
+
 typedef struct stack
 {
-	int	*number;
-	int	top;
-	int	end;
-	int	items;
-	int	chunk_size;
+	t_number	*numbers;
+	int			top;
+	int			end;
+	int			items;
+	int			chunk_size;
 }	t_stack;
 
 void	pushswap(t_stack *a, t_stack *b, int n);
@@ -55,6 +61,7 @@ void	test_stacks(t_stack *a, t_stack *b);
 void	ft_swap(t_stack *st, int i, int j);
 void	sort3_1(t_stack *a, t_stack *b);
 void	sort3_2(t_stack *a, t_stack *b);
+void	check_swap(t_stack *a, t_stack *b);
 
 // operations:
 void	swap(t_stack *stack, char c, int opt);
@@ -72,6 +79,6 @@ void	updateend(t_stack *stack, int opt);
 //sorting:
 int		find_median(t_stack *a);
 void	sort_5(t_stack *a, t_stack *b, int n);
-void	sort(t_stack *a, t_stack *b, int n);
+void	set_position(t_stack *a);
 
 #endif

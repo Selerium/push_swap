@@ -21,12 +21,12 @@ t_stack	*fillstack_a(int argc, char **argv)
 	stack = (t_stack *) ft_calloc(sizeof(t_stack), 1);
 	if (!stack)
 		ft_printexit(3);
-	stack->number = (int *) ft_calloc(sizeof(int), argc - 1);
-	if (!stack->number)
+	stack->numbers = (t_number *) ft_calloc(sizeof(t_number), argc - 1);
+	if (!stack->numbers)
 		ft_printexit(3);
 	while (i < argc)
 	{
-		stack->number[i - 1] = ft_atoi(argv[i]);
+		stack->numbers[i - 1].value = ft_atoi(argv[i]);
 		i++;
 	}
 	stack->items = argc - 1;
@@ -42,8 +42,8 @@ t_stack	*fillstack_b(int argc)
 	stack = (t_stack *) ft_calloc(sizeof(t_stack), 1);
 	if (!stack)
 		ft_printexit(3);
-	stack->number = (int *) ft_calloc(sizeof(int), argc - 1);
-	if (!stack->number)
+	stack->numbers = (t_number *) ft_calloc(sizeof(t_number), argc - 1);
+	if (!stack->numbers)
 		ft_printexit(3);
 	stack->items = 0;
 	stack->top = 0;

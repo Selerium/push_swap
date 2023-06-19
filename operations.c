@@ -69,26 +69,26 @@ void	push(t_stack *a, t_stack *b, int dir)
 	g_counter++;
 	if (dir)
 	{
-		if (a->items > 0)
-		{
-			b->number[b->items] = a->number[0];
-			b->items += 1;
-			revrotate(b, 'b', 0);
-			rotate(a, 'a', 0);
-			a->items -= 1;
-			ft_printf("p%c\n", 'b');
-		}
+		if (a->items <= 0)
+			return ;
+		b->numbers[b->items].value = a->numbers[0].value;
+		b->numbers[b->items].position = a->numbers[0].position;
+		b->items += 1;
+		revrotate(b, 'b', 0);
+		rotate(a, 'a', 0);
+		a->items -= 1;
+		ft_printf("p%c\n", 'b');
 	}
 	else
 	{
-		if (b->items > 0)
-		{
-			a->number[a->items] = b->number[0];
-			a->items += 1;
-			revrotate(a, 'a', 0);
-			rotate(b, 'b', 0);
-			b->items -= 1;
-			ft_printf("p%c\n", 'a');
-		}
+		if (b->items <= 0)
+			return ;
+		a->numbers[a->items].value = b->numbers[0].value;
+		a->numbers[a->items].position = b->numbers[0].position;
+		a->items += 1;
+		revrotate(a, 'a', 0);
+		rotate(b, 'b', 0);
+		b->items -= 1;
+		ft_printf("p%c\n", 'a');
 	}
 }

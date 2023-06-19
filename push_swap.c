@@ -20,23 +20,16 @@ void	set_chunk_size(t_stack *a, int n)
 
 void	pushswap(t_stack *a, t_stack *b, int n)
 {
+	set_position(a);
 	if (!b)
 		return ;
 	if (n == 1)
 		return ;
-	if (n == 2)
-	{
-		if (a->number[0] > a->number[1])
-		{
-			if (b->number[0] < b->number[1])
-				m_swap(a, b);
-			else
-				swap(a, 'a', 1);
-		}
-	}
+	if (n == 2 && a->numbers[0].value > a->numbers[1].value)
+		check_swap(a, b);
 	else if (n == 3)
 	{
-		if (a->number[0] > a->number[1])
+		if (a->numbers[0].value > a->numbers[1].value)
 			sort3_1(a, b);
 		else
 			sort3_2(a, b);

@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 21:26:33 by jadithya          #+#    #+#             */
-/*   Updated: 2023/06/17 21:27:11 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/06/19 19:22:14 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,20 @@ void	swapitems(t_stack *stack, int top, int i)
 {
 	int	temp;
 
-	temp = stack->number[top];
-	stack->number[top] = stack->number[i];
-	stack->number[i] = temp;
+	temp = stack->numbers[top].value;
+	stack->numbers[top].value = stack->numbers[i].value;
+	stack->numbers[i].value = temp;
+	temp = stack->numbers[top].position;
+	stack->numbers[top].position = stack->numbers[i].position;
+	stack->numbers[i].position = temp;
 }
 
 void	ft_freestacks(t_stack *a, t_stack *b)
 {
-	if (a->number)
-		free(a->number);
-	if (b->number)
-		free(b->number);
+	if (a->numbers)
+		free(a->numbers);
+	if (b->numbers)
+		free(b->numbers);
 	if (a)
 		free(a);
 	if (b)
@@ -38,7 +41,7 @@ int	complete(t_stack *a, int argc)
 	int	i;
 
 	i = 0;
-	while (a->number[i] < a->number[i + 1] && i < argc - 1)
+	while (a->numbers[i].value < a->numbers[i + 1].value && i < argc - 1)
 		i++;
 	if (i == argc - 1)
 		return (1);
@@ -54,7 +57,7 @@ void	test_stacks(t_stack *a, t_stack *b)
 		a->items, a->top, a->end);
 	while (i < a->items)
 	{
-		ft_printf("%d\n", a->number[i]);
+		ft_printf("%d\n", a->numbers[i].value);
 		i++;
 	}
 	i = 0;
@@ -62,7 +65,7 @@ void	test_stacks(t_stack *a, t_stack *b)
 		b->items, b->top, b->end);
 	while (i < b->items)
 	{
-		ft_printf("%d\n", b->number[i]);
+		ft_printf("%d\n", b->numbers[i].value);
 		i++;
 	}
 }

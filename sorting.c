@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 21:56:25 by jadithya          #+#    #+#             */
-/*   Updated: 2023/06/18 20:39:35 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/06/19 19:23:47 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	find_median(t_stack *a)
 	i = 0;
 	sum = 0;
 	while (i < a->chunk_size && i < a->items)
-		sum += a->number[i++];
+		sum += a->numbers[i++].value;
 	if (a->items > a->chunk_size)
 		return (sum / a->chunk_size);
 	return (sum / a->items);
@@ -28,7 +28,7 @@ int	find_median(t_stack *a)
 
 void	check_rotate(t_stack *a, t_stack *b, char c)
 {
-	if (b->number[0] < b->number[b->items - 1])
+	if (b->numbers[0].value < b->numbers[b->items - 1].value)
 		m_rotate(a, b);
 	else
 		rotate(a, c, 1);
@@ -43,7 +43,7 @@ void	sort_5(t_stack *a, t_stack *b, int n)
 	median = find_median(a);
 	while (a->items > 3 && i++ < a->chunk_size && n)
 	{
-		if (a->number[0] < median)
+		if (a->numbers[0].value < median)
 			push(a, b, 1);
 		else
 			check_rotate(a, b, 'a');
@@ -52,36 +52,32 @@ void	sort_5(t_stack *a, t_stack *b, int n)
 		pushswap(a, b, 3);
 	while (b->items)
 	{
-		if (b->number[0] < b->number[1])
+		if (b->numbers[0].value < b->numbers[1].value)
 			swap(b, 'b', 1);
-		else if (b->number[0] < b->number[b->items - 1])
+		else if (b->numbers[0].value < b->numbers[b->items - 1].value)
 			rotate(b, 'b', 1);
 		push(a, b, 0);
 	}
 }
 
-void	sort(t_stack *a, t_stack *b, int n)
+void	set_position(t_stack *a)
 {
 	int	i;
-	int	median;
+	int	j;
+	int	count;
+	int	max;
 
-	i = 0;
-	median = find_median(a);
-	while (a->items > 3 && i++ < a->chunk_size && n)
+	i = -1;
+	max = 0;
+	while (++i < a->items)
 	{
-		if (a->number[0] < median)
-			push(a, b, 1);
-		else
-			check_rotate(a, b, 'a');
-	}
-	if (a->items == 3)
-		pushswap(a, b, 3);
-	while (b->items)
-	{
-		if (b->number[0] < b->number[1])
-			swap(b, 'b', 1);
-		else if (b->number[0] < b->number[b->items - 1])
-			rotate(b, 'b', 1);
-		push(a, b, 0);
+		count = 0;
+		j = -1;
+		while (++j < a->items)
+		{
+			if (a->numbers[j].value > a->numbers[i].value)
+				count++;
+		}
+		a->numbers[i].position = a->items - count;
 	}
 }
