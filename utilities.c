@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 21:26:33 by jadithya          #+#    #+#             */
-/*   Updated: 2023/06/19 19:22:14 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/06/19 19:26:00 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	test_stacks(t_stack *a, t_stack *b)
 		a->items, a->top, a->end);
 	while (i < a->items)
 	{
-		ft_printf("%d\n", a->numbers[i].value);
+		ft_printf("%d\t-\t%d\n", a->numbers[i].value, a->numbers[i].position);
 		i++;
 	}
 	i = 0;
@@ -65,7 +65,7 @@ void	test_stacks(t_stack *a, t_stack *b)
 		b->items, b->top, b->end);
 	while (i < b->items)
 	{
-		ft_printf("%d\n", b->numbers[i].value);
+		ft_printf("%d\t-\t%d\n", b->numbers[i].value, b->numbers[i].position);
 		i++;
 	}
 }

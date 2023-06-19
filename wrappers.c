@@ -26,7 +26,7 @@ void	ft_swap(t_stack *st, int i, int j)
 
 void	check_swap(t_stack *a, t_stack *b)
 {
-	if (b->numbers[0].value < b->numbers[1].value)
+	if (b->numbers[0].position < b->numbers[1].position)
 		m_swap(a, b);
 	else
 		swap(a, 'a', 1);
@@ -34,11 +34,11 @@ void	check_swap(t_stack *a, t_stack *b)
 
 void	sort3_1(t_stack *a, t_stack *b)
 {
-	if (a->numbers[0].value < a->numbers[2].value)
+	if (a->numbers[0].position < a->numbers[2].position)
 		check_swap(a, b);
 	else
 	{
-		if (a->numbers[2].value > a->numbers[1].value)
+		if (a->numbers[2].position > a->numbers[1].position)
 			rotate(a, 'a', 1);
 		else
 		{
@@ -50,11 +50,11 @@ void	sort3_1(t_stack *a, t_stack *b)
 
 void	sort3_2(t_stack *a, t_stack *b)
 {
-	if (a->numbers[0].value > a->numbers[2].value)
+	if (a->numbers[0].position > a->numbers[2].position)
 		revrotate(a, 'a', 1);
 	else
 	{
-		if (a->numbers[1].value > a->numbers[2].value)
+		if (a->numbers[1].position > a->numbers[2].position)
 		{
 			check_swap(a, b);
 			rotate(a, 'a', 1);
