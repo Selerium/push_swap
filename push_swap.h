@@ -65,6 +65,7 @@ void	check_swap(t_stack *a, t_stack *b);
 
 // operations:
 void	swap(t_stack *stack, char c, int opt);
+void	check_rotate(t_stack *a, t_stack *b, char c);
 void	rotate(t_stack *stack, char c, int opt);
 void	revrotate(t_stack *stack, char c, int opt);
 void	push(t_stack *a, t_stack *b, int dir);
@@ -77,8 +78,9 @@ void	updatetop(t_stack *stack, int opt);
 void	updateend(t_stack *stack, int opt);
 
 //sorting:
+void	set_position(t_stack *a);
 int		find_median(t_stack *a);
 void	sort_5(t_stack *a, t_stack *b, int n);
-void	set_position(t_stack *a);
+void	sort_100(t_stack *a, t_stack *b, int n);
 
 #endif

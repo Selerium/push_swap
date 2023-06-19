@@ -35,6 +35,8 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 	}
 	else if (n <= 5)
 		sort_5(a, b, n);
+	else if (n <= 100)
+		sort_100(a, b, n);
 }
 
 int	main(int argc, char **argv)
