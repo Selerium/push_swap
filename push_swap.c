@@ -56,7 +56,7 @@ int	main(int argc, char **argv)
 		set_position(a);
 		pushswap(a, b, argc - 1);
 	}
-	test_stacks(a, b);
+	//test_stacks(a, b);
 	ft_freestacks(a, b);
 	return (0);
 }
