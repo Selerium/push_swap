@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 21:56:25 by jadithya          #+#    #+#             */
-/*   Updated: 2023/06/19 20:54:51 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:19:06 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,8 @@ int	find_median(t_stack *a)
 
 	i = 0;
 	sum = 0;
-	while (i < a->chunk_size && i < a->items)
+	while (i < a->items)
 		sum += a->numbers[i++].position;
-	if (a->items > a->chunk_size)
-		return (sum / a->chunk_size);
 	return (sum / a->items);
 }
 
@@ -76,19 +74,17 @@ void	sort_5(t_stack *a, t_stack *b, int n)
 
 void	sort_100(t_stack *a, t_stack *b, int n)
 {
-	int	i;
 	int	median;
+	int	i;
 
-	i = 0;
-	median = find_median(a);
-	while (a->items > 5 && i < a->chunk_size && n)
+	while (a->items > 5)
 	{
-		if (a->numbers[0].position <= median)
+		median = find_median(a);
+		i = a->items;
+		while (i--)
 		{
-			push(a, b, 1);
-			i++;
+			//add condition for push or rotate
 		}
-		else
-			check_rotate(a, b, 'a');
+		
 	}
 }
