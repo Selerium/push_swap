@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 21:56:25 by jadithya          #+#    #+#             */
-/*   Updated: 2023/06/20 18:19:06 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/06/20 19:11:12 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,10 @@ void	sort_100(t_stack *a, t_stack *b, int n)
 		i = a->items;
 		while (i--)
 		{
-			//add condition for push or rotate
+			if (a->numbers[0].position < median)
+				push(a, b, 1);
+			else
+				check_rotate(a, b, 'a');
 		}
-		
 	}
 }
