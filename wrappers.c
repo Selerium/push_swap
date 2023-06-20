@@ -26,7 +26,7 @@ void	ft_swap(t_stack *st, int i, int j)
 
 void	check_swap(t_stack *a, t_stack *b)
 {
-	if (b->numbers[0].position < b->numbers[1].position)
+	if (b->numbers[b->top].position < b->numbers[b->end].position)
 		m_swap(a, b);
 	else
 		swap(a, 'a', 1);

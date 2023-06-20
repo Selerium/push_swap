@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 21:26:33 by jadithya          #+#    #+#             */
-/*   Updated: 2023/06/19 19:26:00 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/06/20 21:08:58 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,18 @@ int	complete(t_stack *a, int argc)
 void	test_stacks(t_stack *a, t_stack *b)
 {
 	int	i;
+	int	j;
 
 	i = 0;
 	ft_printf("\nStack A: %d items | top: %d, end: %d\n",
 		a->items, a->top, a->end);
 	while (i < a->items)
 	{
-		ft_printf("%d\t-\t%d\n", a->numbers[i].value, a->numbers[i].position);
+		j = a->numbers[i].position;
+		ft_printf("%d\t", a->numbers[i].position);
+		while (j--)
+			ft_printf("-");
+		ft_printf("\n");
 		i++;
 	}
 	i = 0;
@@ -65,7 +70,11 @@ void	test_stacks(t_stack *a, t_stack *b)
 		b->items, b->top, b->end);
 	while (i < b->items)
 	{
-		ft_printf("%d\t-\t%d\n", b->numbers[i].value, b->numbers[i].position);
+		j = b->numbers[i].position;
+		ft_printf("%d\t", b->numbers[i].position);
+		while (j--)
+			ft_printf("-");
+		ft_printf("\n");
 		i++;
 	}
 }
