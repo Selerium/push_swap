@@ -15,7 +15,7 @@
 void	set_chunk_size(t_stack *a, int n)
 {
 	if (n <= 100)
-		a->chunk_size = 10;
+		a->chunk_size = 20;
 }
 
 void	pushswap(t_stack *a, t_stack *b, int n)
@@ -37,7 +37,8 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 		sort_5(a, b, n);
 	else if (n <= 100)
 	{
-		sort_100(a, b, n);
+		// sort_100(a, b, n);
+		separate_chunks(a, b);
 	}
 }
 
@@ -58,7 +59,7 @@ int	main(int argc, char **argv)
 		set_position(a);
 		pushswap(a, b, argc - 1);
 	}
-	//test_stacks(a, b);
+	test_stacks(a, b);
 	ft_freestacks(a, b);
 	return (0);
 }

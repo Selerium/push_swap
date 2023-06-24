@@ -82,5 +82,6 @@ void	set_position(t_stack *a);
 int		find_median(t_stack *a);
 void	sort_5(t_stack *a, t_stack *b, int n);
 void	sort_100(t_stack *a, t_stack *b, int n);
+void	separate_chunks(t_stack *a, t_stack *b);
 
 #endif

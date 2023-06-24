@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 21:56:25 by jadithya          #+#    #+#             */
-/*   Updated: 2023/06/21 14:26:40 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/06/24 14:33:33 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,30 @@ int	check_above_median(t_stack *a, int median)
 		if (a->numbers[i].position < median)
 			return (1);
 	return (0);
+}
+
+void	separate_chunks(t_stack *a, t_stack *b)
+{
+	int	chunks;
+	int	min;
+	int	max;
+	int	i;
+
+	chunks = a->items / a->chunk_size;
+	i = 0;
+	while (i < chunks)
+	{
+		min = a->chunk_size * i;
+		max = min + a->chunk_size;
+		while (b->items < a->chunk_size * (1 + i))
+		{
+			if (a->numbers[0].position >= min && a->numbers[0].position <= max)
+				push(a, b, 1);
+			else
+				rotate(a, 'a', 1);
+		}
+		i++;
+	}
 }
 
 void	rotate_to_zero(t_stack *a)
