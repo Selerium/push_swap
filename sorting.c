@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 21:56:25 by jadithya          #+#    #+#             */
-/*   Updated: 2023/06/24 14:33:33 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/06/24 20:45:35 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,34 @@ int	check_above_median(t_stack *a, int median)
 	return (0);
 }
 
+void	finddirection(t_stack *a, int min, int max)
+{
+	int	i;
+	int	near;
+	int	end;
+
+	i = 0;
+	end = -1;
+	near = -1;
+	while (i < a->items)
+	{
+		if (near < 0
+			&& a->numbers[i].position <= max && a->numbers[i].position >= min)
+			near = i;
+		if (end < 0
+			&& a->numbers[a->items - 1 - i].position <= max
+			&& a->numbers[a->items - 1 - i].position >= min)
+			end = i;
+		i++;
+	}
+	if (end > near)
+		while (near--)
+			rotate(a, 'a', 1);
+	else
+		while (end--)
+			revrotate(a, 'a', 1);
+}
+
 void	separate_chunks(t_stack *a, t_stack *b)
 {
 	int	chunks;
@@ -98,10 +126,9 @@ void	separate_chunks(t_stack *a, t_stack *b)
 		max = min + a->chunk_size;
 		while (b->items < a->chunk_size * (1 + i))
 		{
+			finddirection(a, min, max);
 			if (a->numbers[0].position >= min && a->numbers[0].position <= max)
 				push(a, b, 1);
-			else
-				rotate(a, 'a', 1);
 		}
 		i++;
 	}
