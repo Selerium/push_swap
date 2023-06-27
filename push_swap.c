@@ -77,7 +77,6 @@ int	main(int argc, char **argv)
 	set_position(a);
 	if (complete(a, a->items) == 0)
 		pushswap(a, b, a->items);
-	test_stacks(a, b);
 	ft_freestacks(a, b);
 	if (flag)
 		freeav(argv);

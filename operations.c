@@ -25,15 +25,6 @@ void	swap(t_stack *stack, char c, int opt)
 	}
 }
 
-void	check_rotate(t_stack *a, t_stack *b, char c)
-{
-	if (b->items > 1
-		&& b->numbers[b->top].position < b->numbers[b->end].position)
-		m_rotate(a, b);
-	else
-		rotate(a, c, 1);
-}
-
 void	rotate(t_stack *stack, char c, int opt)
 {
 	int	i;

@@ -36,6 +36,7 @@ typedef struct stack
 	int			end;
 	int			items;
 	int			chunk_size;
+	int			smallest;
 }	t_stack;
 
 void	pushswap(t_stack *a, t_stack *b, int n);
@@ -66,7 +67,6 @@ void	check_swap(t_stack *a, t_stack *b);
 
 // operations:
 void	swap(t_stack *stack, char c, int opt);
-void	check_rotate(t_stack *a, t_stack *b, char c);
 void	rotate(t_stack *stack, char c, int opt);
 void	revrotate(t_stack *stack, char c, int opt);
 void	push(t_stack *a, t_stack *b, int dir);
@@ -85,8 +85,9 @@ void	sort_5(t_stack *a, t_stack *b, int n);
 void	separate_chunks(t_stack *a, t_stack *b);
 
 //reassembly:
+void	check_rotate(t_stack *a, t_stack *b, char c);
+void	check_revrotate(t_stack *a, t_stack *b, char c);
 int		findpos(t_stack *b, int n);
-void	backtob(t_stack *a, t_stack *b);
 void	backtoa(t_stack *a, t_stack *b);
 
 #endif

@@ -12,6 +12,42 @@
 
 #include"push_swap.h"
 
+void	check_rotate(t_stack *a, t_stack *b, char c)
+{
+	if (c == 'a')
+	{
+		if (b->items > 1
+			&& b->numbers[b->top].position < b->numbers[b->end].position)
+			m_rotate(a, b);
+		else
+			rotate(a, c, 1);
+	}
+}
+
+void	check_revrotate(t_stack *a, t_stack *b, char c)
+{
+	if (c == 'a')
+	{
+		if (b->items > 1
+			&& b->numbers[b->top].position > b->numbers[b->end].position)
+			m_revrotate(a, b);
+		else
+			revrotate(a, c, 1);
+	}
+	else
+	{
+		if (b->numbers[0].position == b->smallest)
+		{
+			push(a, b, 0);
+			b->smallest++;
+			if (b->numbers[0].position != b->items)
+				m_revrotate(a, b);
+			else
+				revrotate(a, 'a', 1);
+		}
+	}
+}
+
 int	findpos(t_stack *b, int n)
 {
 	int	i;
@@ -20,32 +56,14 @@ int	findpos(t_stack *b, int n)
 	while (++i < b->items)
 		if (b->numbers[i].position == n)
 			return (i);
-}
-
-void	backtob(t_stack *a, t_stack *b)
-{
-	int	pos;
-	int	max;
-
-	max = a->items;
-	while (a->items > 5)
-	{
-		// pos = findpos(a, max--);
-		// if (pos > a->items / 2)
-		// 	while (pos++ < a->items)
-		// 		revrotate(a, 'a', 1);
-		// else
-		// 	while (pos--)
-		// 		rotate(a, 'a', 1);
-		push(a, b, 1);
-	}
-	pushswap(a, b, 5);
+	return (0);
 }
 
 void	backtoa(t_stack *a, t_stack *b)
 {
 	int	pos;
 
+	b->smallest = 1;
 	while (b->items > 1)
 	{
 		pos = findpos(b, b->items);
