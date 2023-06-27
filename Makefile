@@ -6,7 +6,7 @@
 #    By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 22:13:13 by jadithya          #+#    #+#              #
-#    Updated: 2023/06/20 19:09:09 by jadithya         ###   ########.fr        #
+#    Updated: 2023/06/27 20:26:25 by jadithya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS = push_swap.c\
 		wrappers.c\
 		stack_n_errors.c\
 		sorting.c\
+		reassemble.c
 
 CC = gcc
 

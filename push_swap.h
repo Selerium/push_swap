@@ -55,6 +55,7 @@ void	checkparams(int argc, char **argv);
 void	swapitems(t_stack *stack, int top, int i);
 int		complete(t_stack *a, int argc);
 void	ft_freestacks(t_stack *a, t_stack *b);
+char	**checkstring(char *av, t_stack *a, t_stack *b);
 void	test_stacks(t_stack *a, t_stack *b);
 
 // wrappers:
@@ -81,7 +82,11 @@ void	updateend(t_stack *stack, int opt);
 void	set_position(t_stack *a);
 int		find_median(t_stack *a);
 void	sort_5(t_stack *a, t_stack *b, int n);
-void	sort_100(t_stack *a, t_stack *b, int n);
 void	separate_chunks(t_stack *a, t_stack *b);
+
+//reassembly:
+int		findpos(t_stack *b, int n);
+void	backtob(t_stack *a, t_stack *b);
+void	backtoa(t_stack *a, t_stack *b);
 
 #endif

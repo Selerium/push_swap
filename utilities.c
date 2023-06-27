@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 21:26:33 by jadithya          #+#    #+#             */
-/*   Updated: 2023/06/27 16:14:36 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/06/27 18:29:45 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,35 @@ int	complete(t_stack *a, int argc)
 	if (i == a->items)
 		return (1);
 	return (0);
+}
+
+static int	ft_isspace(int s)
+{
+	if (s == 32 || (s >= 9 && s <= 13))
+		return (1);
+	else
+		return (0);
+}
+
+char	**checkstring(char *av, t_stack *a, t_stack *b)
+{
+	char	**args;
+	int		n;
+
+	n = 0;
+	while (ft_isspace(av[n]))
+		n++;
+	if (av[n] == '-')
+		n++;
+	while (ft_isdigit(av[n]))
+		n++;
+	while (ft_isspace(av[n]))
+		n++;
+	if (n == ft_strlen(av))
+		ft_printexit(4);
+	av = ft_strjoin("./push_swap ", av);
+	args = ft_split(av, ' ');
+	return (args);
 }
 
 void	test_stacks(t_stack *a, t_stack *b)

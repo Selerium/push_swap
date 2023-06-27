@@ -38,46 +38,33 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 	else if (n <= 100)
 	{
 		separate_chunks(a, b);
+		backtoa(a, b);
 	}
 }
 
-static int	ft_isspace(int s)
+void	freeav(char **argv)
 {
-	if (s == 32 || (s >= 9 && s <= 13))
-		return (1);
-	else
-		return (0);
-}
+	int	i;
 
-char	**checkstring(char *av, t_stack *a, t_stack *b)
-{
-	char	**args;
-	int		n;
-
-	n = 0;
-	while (ft_isspace(av[n]))
-		n++;
-	if (av[n] == '-')
-		n++;
-	while (ft_isdigit(av[n]))
-		n++;
-	while (ft_isspace(av[n]))
-		n++;
-	if (n == ft_strlen(av))
-		ft_printexit(4);
-	av = ft_strjoin("./push_swap ", av);
-	args = ft_split(av, ' ');
-	return (args);
+	i = 0;
+	while (argv[i])
+	{
+		free(argv[i]);
+		i++;
+	}
+	free(argv);
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
+	int		flag;
 
-	g_counter = 0;
+	flag = 0;
 	if (argc == 2)
 	{
+		flag = 1;
 		argv = checkstring(argv[1], a, b);
 		argc = 0;
 		while (argv[argc])
@@ -87,12 +74,12 @@ int	main(int argc, char **argv)
 	a = fillstack_a(argc, argv);
 	b = fillstack_b(argc);
 	set_chunk_size(a, a->items);
+	set_position(a);
 	if (complete(a, a->items) == 0)
-	{
-		set_position(a);
 		pushswap(a, b, a->items);
-	}
 	test_stacks(a, b);
 	ft_freestacks(a, b);
+	if (flag)
+		freeav(argv);
 	return (0);
 }
