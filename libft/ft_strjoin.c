@@ -6,35 +6,34 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 17:39:20 by jadithya          #+#    #+#             */
-/*   Updated: 2022/06/26 20:45:31 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/06/27 15:57:46 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char const *s2)
 {
 	size_t	i;
 	size_t	j;
+	size_t	l1;
+	size_t	l2;
 	char	*newstr;
 
 	if (!s1 || !s2)
 		return (NULL);
-	j = (ft_strlen((char *) s1) + ft_strlen((char *) s2) + 1);
-	if (j == 0)
-		return (NULL);
+	l1 = ft_strlen((char *) s1);
+	l2 = ft_strlen((char *) s2);
+	j = (l1 + l2 + 1);
 	newstr = (char *) malloc (j * sizeof(char));
 	if (!newstr)
 		return (NULL);
 	i = -1;
-	while (++i < ft_strlen((char *) s1))
+	while (++i < l1)
 		newstr[i] = s1[i];
-	j = 0;
-	while (j < ft_strlen((char *) s2))
-	{
+	j = -1;
+	while (++j < l2)
 		newstr[i + j] = s2[j];
-		j++;
-	}
 	newstr[i + j] = '\0';
 	return (newstr);
 }

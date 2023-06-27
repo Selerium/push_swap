@@ -25,21 +25,36 @@ static int	ft_count(char const *s, char c)
 	size_t	i;
 	size_t	j;
 	int		count;
+	size_t	limit;
 
 	i = 0;
 	count = 0;
-	while (i <= ft_strlen((char *) s))
+	limit = ft_strlen((char *) s);
+	while (i <= limit)
 	{
 		while (s[i] == c)
 			i++;
 		j = i++;
-		while ((s[i] != c || s[j] == '"')
-			&& s[i] != '\0' && (i - 1 == j || s[i - 1] != '"'))
-			i++;
+		if (s[j] != '\0')
+		{
+			while (s[i] != '\0' && (s[i] != c || s[j] == '"') && (i - 1 == j
+					|| s[i - 1] != '"') && s[i] != '\n')
+				i++;
+		}
 		count++;
 		i++;
 	}
+	if (s[limit - 1] == ' ')
+		count--;
 	return (count);
+}
+
+int	checkbool(char const *s, int i, int j, char c)
+{
+	if (s[j] != '\0' && s[i] != '\0' && (s[i] != c || (j > 0
+				&& s[j - 1] == '"')) && s[i] != '"')
+		return (1);
+	return (-1);
 }
 
 char	**ft_split(char const *s, char c)
@@ -60,10 +75,10 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	while (++n < count)
 	{
-		while (s[i] == c || s[i] == '"')
+		while (s[i] && (s[i] == c || s[i] == '"'))
 			i++;
 		j = i++;
-		while ((s[i] != c || s[j - 1] == '"') && s[i] != '\0' && s[i] != '"')
+		while (checkbool(s, i, j, c) > 0)
 			i++;
 		newstr[n] = ft_substr(s, j, i - j);
 	}

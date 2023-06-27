@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 21:26:33 by jadithya          #+#    #+#             */
-/*   Updated: 2023/06/20 21:08:58 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/06/27 16:14:36 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ int	complete(t_stack *a, int argc)
 	int	i;
 
 	i = 0;
-	while (a->numbers[i].value < a->numbers[i + 1].value && i < argc - 1)
+	while (a->numbers[i].value < a->numbers[i + 1].value && i < a->items)
 		i++;
-	if (i == argc - 1)
+	if (i == a->items)
 		return (1);
 	return (0);
 }

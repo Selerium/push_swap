@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 21:56:25 by jadithya          #+#    #+#             */
-/*   Updated: 2023/06/24 20:45:35 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/06/27 16:22:58 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	sort_5(t_stack *a, t_stack *b, int n)
 	}
 	if (a->items == 3)
 		pushswap(a, b, 3);
-	while (a->items < 5)
+	while (a->items < n)
 	{
 		if (b->numbers[0].position < b->numbers[1].position)
 			swap(b, 'b', 1);
@@ -126,6 +126,7 @@ void	separate_chunks(t_stack *a, t_stack *b)
 		max = min + a->chunk_size;
 		while (b->items < a->chunk_size * (1 + i))
 		{
+			ft_printf("test");
 			finddirection(a, min, max);
 			if (a->numbers[0].position >= min && a->numbers[0].position <= max)
 				push(a, b, 1);
