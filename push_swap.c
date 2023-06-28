@@ -14,10 +14,12 @@
 
 void	set_chunk_size(t_stack *a, int n)
 {
-	if (n <= 500 && n > 100)
-		a->chunk_size = 40;
-	else if (n <= 100)
+	if (n <= 100)
 		a->chunk_size = 17;
+	else if (n <= 500)
+		a->chunk_size = 42;
+	else
+		a->chunk_size = 60;
 }
 
 void	pushswap(t_stack *a, t_stack *b, int n)
@@ -75,8 +77,8 @@ int	main(int argc, char **argv)
 	set_position(a);
 	if (complete(a) == 0)
 		pushswap(a, b, a->items);
-	ft_freestacks(a, b);
 	if (a->flag)
 		freeav(argv);
+	ft_freestacks(a, b);
 	return (0);
 }
