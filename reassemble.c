@@ -23,6 +23,20 @@ void	check_rotate(t_stack *a, t_stack *b, char c)
 			rotate(a, c, 1);
 	}
 }
+	//else
+	//{
+	//	if (b->numbers[0].position == b->smallest)
+	//	{
+	//		push(a, b, 0);
+	//		b->smallest++;
+	//		if (b->numbers[0].position != b->items)
+	//			m_rotate(a, b);
+	//		else
+	//			rotate(a, c, 1);
+	//	}
+	//	else
+	//		rotate(b, 'b', 1);
+	//}
 
 void	check_revrotate(t_stack *a, t_stack *b, char c)
 {
@@ -33,18 +47,6 @@ void	check_revrotate(t_stack *a, t_stack *b, char c)
 			m_revrotate(a, b);
 		else
 			revrotate(a, c, 1);
-	}
-	else
-	{
-		if (b->numbers[0].position == b->smallest)
-		{
-			push(a, b, 0);
-			b->smallest++;
-			if (b->numbers[0].position != b->items)
-				m_revrotate(a, b);
-			else
-				revrotate(a, 'a', 1);
-		}
 	}
 }
 
@@ -63,7 +65,6 @@ void	backtoa(t_stack *a, t_stack *b)
 {
 	int	pos;
 
-	b->smallest = 1;
 	while (b->items > 1)
 	{
 		pos = findpos(b, b->items);

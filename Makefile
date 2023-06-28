@@ -6,25 +6,17 @@
 #    By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 22:13:13 by jadithya          #+#    #+#              #
-#    Updated: 2023/06/27 20:26:25 by jadithya         ###   ########.fr        #
+#    Updated: 2023/06/28 15:37:09 by jadithya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRCS = push_swap.c\
-		checkparams.c\
-		operations.c\
-		moreoperations.c\
-		utilities.c\
-		wrappers.c\
-		stack_n_errors.c\
-		sorting.c\
-		reassemble.c
+SRCS = $(filter-out thingsidontneed.c teststacks.c, $(wildcard *.c))
 
-CC = gcc
+CC = cc
 
-CFLAGS = -g3
+CFLAGS = -g3 -Wall -Werror -Wextra
 
 OBJS = $(SRCS:.c=.o)
 
@@ -37,15 +29,16 @@ $(NAME): $(OBJS)
 	make bonus -C libft
 	gcc $(OBJS) -o $(NAME) $(CFLAGS) $(LIB)
 
-bonus: 
+bonus:
 
 all: $(NAME)
 
-norm: 
-	python3 -m norminette *.c push_swap.h libft/*.c libft/libft.h
+norm:
+	python3 -m norminette $(SRCS) push_swap.h libft/*.c libft/libft.h
 
-normps:
-	norminette push_swap.c push_swap.h
+test: $(NAME)
+	make
+	/usr/bin/python3 python_visualizer.py `ruby -e "puts (1..100).to_a.shuffle.join(' ')"`
 
 clean:
 	rm -f $(OBJS)

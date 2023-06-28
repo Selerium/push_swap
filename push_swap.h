@@ -37,10 +37,12 @@ typedef struct stack
 	int			items;
 	int			chunk_size;
 	int			smallest;
+	int			flag;
 }	t_stack;
 
+void	set_chunk_size(t_stack *a, int n);
 void	pushswap(t_stack *a, t_stack *b, int n);
-void	test_stacks(t_stack *a, t_stack *b);
+void	freeav(char **argv);
 
 // stack 'n errors:
 t_stack	*fillstack_a(int argc, char **argv);
@@ -54,10 +56,9 @@ void	checkparams(int argc, char **argv);
 
 // utilities:
 void	swapitems(t_stack *stack, int top, int i);
-int		complete(t_stack *a, int argc);
 void	ft_freestacks(t_stack *a, t_stack *b);
-char	**checkstring(char *av, t_stack *a, t_stack *b);
-void	test_stacks(t_stack *a, t_stack *b);
+int		complete(t_stack *a);
+char	**checkstring(char *av);
 
 // wrappers:
 void	ft_swap(t_stack *st, int i, int j);

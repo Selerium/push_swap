@@ -15,7 +15,7 @@
 void	set_chunk_size(t_stack *a, int n)
 {
 	if (n <= 100)
-		a->chunk_size = 20;
+		a->chunk_size = 19;
 }
 
 void	pushswap(t_stack *a, t_stack *b, int n)
@@ -36,10 +36,7 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 	else if (n <= 5)
 		sort_5(a, b, n);
 	else if (n <= 100)
-	{
 		separate_chunks(a, b);
-		backtoa(a, b);
-	}
 }
 
 void	freeav(char **argv)
@@ -59,13 +56,12 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	int		flag;
 
-	flag = 0;
+	a = NULL;
+	b = NULL;
 	if (argc == 2)
 	{
-		flag = 1;
-		argv = checkstring(argv[1], a, b);
+		argv = checkstring(argv[1]);
 		argc = 0;
 		while (argv[argc])
 			argc++;
@@ -75,10 +71,10 @@ int	main(int argc, char **argv)
 	b = fillstack_b(argc);
 	set_chunk_size(a, a->items);
 	set_position(a);
-	if (complete(a, a->items) == 0)
+	if (complete(a) == 0)
 		pushswap(a, b, a->items);
 	ft_freestacks(a, b);
-	if (flag)
+	if (a->flag)
 		freeav(argv);
 	return (0);
 }

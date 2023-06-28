@@ -29,6 +29,9 @@ t_stack	*fillstack_a(int argc, char **argv)
 		stack->numbers[i - 1].value = ft_atoi(argv[i]);
 		i++;
 	}
+	stack->flag = 0;
+	if (ft_strncmp(argv[0], "flag", 3) == 0)
+		stack->flag = 1;
 	stack->items = argc - 1;
 	stack->top = 0;
 	stack->end = stack->items - 1;

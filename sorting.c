@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 21:56:25 by jadithya          #+#    #+#             */
-/*   Updated: 2023/06/27 23:29:38 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/06/28 15:30:59 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	sort_5(t_stack *a, t_stack *b, int n)
 	}
 }
 
-void	finddirection(t_stack *a, t_stack *b, int min, int max)
+void	finddirection(t_stack *a, int min, int max)
 {
 	int	i;
 	int	near;
@@ -92,7 +92,7 @@ void	finddirection(t_stack *a, t_stack *b, int min, int max)
 	}
 	if (end > near)
 		while (near--)
-			check_rotate(a, b, 'a');
+			rotate(a, 'a', 1);
 	else
 		while (end--)
 			revrotate(a, 'a', 1);
@@ -116,9 +116,10 @@ void	separate_chunks(t_stack *a, t_stack *b)
 			max = a->items + b->items;
 		while (b->items < max)
 		{
-			finddirection(a, b, min, max);
+			finddirection(a, min, max);
 			push(a, b, 1);
 		}
 		i++;
 	}
+	backtoa(a, b);
 }
