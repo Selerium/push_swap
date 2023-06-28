@@ -52,13 +52,18 @@ void	checkparams(int argc, char **argv)
 		ft_printexit(1);
 	while (i < argc)
 	{
+		check_long(argv, i);
 		if (checknum(argv[i]) != 0 || checkword(argv[i]) != 0)
 			ft_printexit(2);
 		j = i + 1;
 		while (j < argc)
 		{
 			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+			{
+				if (ft_strncmp(argv[0], "flag", 4) == 0)
+					freeav(argv);
 				ft_printexit(2);
+			}
 			j++;
 		}
 		i++;

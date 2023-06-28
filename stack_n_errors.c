@@ -12,6 +12,13 @@
 
 #include"push_swap.h"
 
+void	ft_otherexit(char **av)
+{
+	if (ft_strncmp(av[0], "flag", 4) == 0)
+		freeav(av);
+	ft_printexit(2);
+}
+
 t_stack	*fillstack_a(int argc, char **argv)
 {
 	int		i;

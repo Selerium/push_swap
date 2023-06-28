@@ -6,7 +6,7 @@
 #    By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/22 13:42:18 by jadithya          #+#    #+#              #
-#    Updated: 2022/08/31 20:01:18 by jadithya         ###   ########.fr        #
+#    Updated: 2023/06/28 21:59:05 by jadithya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,7 @@ BONUSSRC = ft_lstnew.c\
 			ft_lstiter.c\
 			ft_lstmap.c
 
-CC = gcc
+CC = cc
 
 CFLAGS = -Wextra -Werror -Wall
 

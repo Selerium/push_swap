@@ -6,7 +6,7 @@
 #    By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 22:13:13 by jadithya          #+#    #+#              #
-#    Updated: 2022/07/06 16:42:50 by jadithya         ###   ########.fr        #
+#    Updated: 2023/06/28 21:59:14 by jadithya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRCS = ft_digits.c\
 		ft_printunsint.c\
 		ft_printzeros.c\
 
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 

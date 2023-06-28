@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 14:58:11 by jadithya          #+#    #+#             */
-/*   Updated: 2022/12/22 19:25:19 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/06/28 22:37:19 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	m_swap(t_stack *a, t_stack *b)
 {
 	swap(a, 'a', 0);
 	swap(b, 'b', 0);
-	printf("ss\n");
+	ft_printf("ss\n");
 	g_counter++;
 }
 
@@ -24,7 +24,7 @@ void	m_rotate(t_stack *a, t_stack *b)
 {
 	rotate(a, 'a', 0);
 	rotate(b, 'b', 0);
-	printf("rr\n");
+	ft_printf("rr\n");
 	g_counter++;
 }
 
@@ -32,7 +32,7 @@ void	m_revrotate(t_stack *a, t_stack *b)
 {
 	revrotate(a, 'a', 0);
 	revrotate(b, 'a', 0);
-	printf("rrr\n");
+	ft_printf("rrr\n");
 	g_counter++;
 }
 

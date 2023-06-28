@@ -6,7 +6,7 @@
 #    By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 22:13:13 by jadithya          #+#    #+#              #
-#    Updated: 2023/06/28 17:48:58 by jadithya         ###   ########.fr        #
+#    Updated: 2023/06/28 18:25:27 by jadithya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,26 @@ norm:
 500: $(NAME)
 	make
 	/usr/bin/python3 python_visualizer.py `ruby -e "puts (1..500).to_a.shuffle.join(' ')"`
+
+valgrind: $(NAME)
+	make
+	valgrind --leak-check=full --show-leak-kinds=all ./push_swap 1
+	sleep 5
+	valgrind --leak-check=full --show-leak-kinds=all ./push_swap 3 2 
+	sleep 5
+	valgrind --leak-check=full --show-leak-kinds=all ./push_swap `ruby -e "puts (1..3).to_a.shuffle.join(' ')"`
+	sleep 5
+	valgrind --leak-check=full --show-leak-kinds=all ./push_swap 3 2 1
+	sleep 5
+	valgrind --leak-check=full --show-leak-kinds=all ./push_swap `ruby -e "puts (1..5).to_a.shuffle.join(' ')"`
+	sleep 5
+	valgrind --leak-check=full --show-leak-kinds=all ./push_swap 5 4 3 2 1
+	sleep 5
+	valgrind --leak-check=full --show-leak-kinds=all ./push_swap 1 2 3 4 5 6
+	sleep 5
+	valgrind --leak-check=full --show-leak-kinds=all ./push_swap `ruby -e "puts (1..100).to_a.shuffle.join(' ')"`
+	sleep 5
+	valgrind --leak-check=full --show-leak-kinds=all ./push_swap `ruby -e "puts (1..500).to_a.shuffle.join(' ')"`
 
 clean:
 	rm -f $(OBJS)

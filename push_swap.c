@@ -65,6 +65,8 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc == 2)
 	{
+		if (ft_strlen(argv[1]) == 0)
+			exit(0);
 		argv = checkstring(argv[1]);
 		argc = 0;
 		while (argv[argc])

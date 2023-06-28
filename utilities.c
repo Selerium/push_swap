@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 21:26:33 by jadithya          #+#    #+#             */
-/*   Updated: 2023/06/28 17:45:30 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/06/28 22:28:28 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	complete(t_stack *a)
 {
 	int	i;
 
-	i = 0;
-	while (a->numbers[i].value < a->numbers[i + 1].value && i < a->items)
+	i = 1;
+	while (i < a->items && a->numbers[i].value > a->numbers[i - 1].value)
 		i++;
 	if (i == a->items)
 		return (1);
@@ -60,8 +60,13 @@ char	**checkstring(char *av)
 {
 	char	**args;
 	int		n;
+	int		i;
 
 	n = 0;
+	i = -1;
+	while (++i < ft_strlen(av))
+		if (!ft_isdigit(av[i]) && av[i] != '-' && !ft_isspace(av[i]))
+			ft_printexit(2);
 	while (ft_isspace(av[n]))
 		n++;
 	if (av[n] == '-')
@@ -71,8 +76,9 @@ char	**checkstring(char *av)
 	while (ft_isspace(av[n]))
 		n++;
 	if (n == (int) ft_strlen(av))
-		ft_printexit(4);
+		check_atol(av);
 	av = ft_strjoin("flag ", av);
 	args = ft_split(av, ' ');
+	free (av);
 	return (args);
 }

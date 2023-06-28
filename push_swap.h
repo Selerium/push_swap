@@ -45,9 +45,14 @@ void	pushswap(t_stack *a, t_stack *b, int n);
 void	freeav(char **argv);
 
 // stack 'n errors:
+void	ft_otherexit(char **av);
 t_stack	*fillstack_a(int argc, char **argv);
 t_stack	*fillstack_b(int argc);
 void	ft_printexit(int n);
+
+//longchecks:
+void	check_atol(char *s);
+void	check_long(char **s, int i);
 
 //checking parameters:
 int		checknum(char *num);
