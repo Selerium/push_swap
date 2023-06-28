@@ -14,8 +14,10 @@
 
 void	set_chunk_size(t_stack *a, int n)
 {
-	if (n <= 100)
-		a->chunk_size = 19;
+	if (n <= 500 && n > 100)
+		a->chunk_size = 40;
+	else if (n <= 100)
+		a->chunk_size = 17;
 }
 
 void	pushswap(t_stack *a, t_stack *b, int n)
@@ -35,7 +37,7 @@ void	pushswap(t_stack *a, t_stack *b, int n)
 	}
 	else if (n <= 5)
 		sort_5(a, b, n);
-	else if (n <= 100)
+	else
 		separate_chunks(a, b);
 }
 

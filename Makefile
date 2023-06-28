@@ -6,7 +6,7 @@
 #    By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 22:13:13 by jadithya          #+#    #+#              #
-#    Updated: 2023/06/28 15:37:09 by jadithya         ###   ########.fr        #
+#    Updated: 2023/06/28 16:40:23 by jadithya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,12 @@ SRCS = $(filter-out thingsidontneed.c teststacks.c, $(wildcard *.c))
 
 CC = cc
 
-CFLAGS = -g3 -Wall -Werror -Wextra
+CFLAGS = -g3
+
+OS := ${shell uname}
+ifeq (${OS},Darwin)
+	CFLAGS += -Wall -Wextra -Werror
+endif
 
 OBJS = $(SRCS:.c=.o)
 
@@ -36,9 +41,13 @@ all: $(NAME)
 norm:
 	python3 -m norminette $(SRCS) push_swap.h libft/*.c libft/libft.h
 
-test: $(NAME)
+100: $(NAME)
 	make
 	/usr/bin/python3 python_visualizer.py `ruby -e "puts (1..100).to_a.shuffle.join(' ')"`
+
+500: $(NAME)
+	make
+	/usr/bin/python3 python_visualizer.py `ruby -e "puts (1..500).to_a.shuffle.join(' ')"`
 
 clean:
 	rm -f $(OBJS)
