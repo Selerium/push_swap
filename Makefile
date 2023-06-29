@@ -6,7 +6,7 @@
 #    By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 22:13:13 by jadithya          #+#    #+#              #
-#    Updated: 2023/06/29 14:19:48 by jadithya         ###   ########.fr        #
+#    Updated: 2023/06/29 15:10:59 by jadithya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,33 +36,35 @@ all: $(NAME)
 norm:
 	python3 -m norminette $(SRCS) push_swap.h libft/*.c libft/libft.h
 
+complete: $(NAME)
+	@./push_swap 0 1 2 3
+	@./push_swap "0 1 2 3"
+	@./push_swap 0 1 2 3 4 5 6 7 8 9
+	@./push_swap "0 1 2 3 4 5 6 7 8 9"
+
 1: $(NAME)
-	make
-	./push_swap -1
+	@./push_swap 42
 
 3: $(NAME)
-	make
-	/usr/bin/python3 python_visualizer.py `ruby -e "puts (1..3).to_a.shuffle.join(' ')"`
+	@/usr/bin/python3 python_visualizer.py `ruby -e "puts (1..3).to_a.shuffle.join(' ')"`
 
 5: $(NAME)
-	make
-	/usr/bin/python3 python_visualizer.py `ruby -e "puts (1..5).to_a.shuffle.join(' ')"`
+	@/usr/bin/python3 python_visualizer.py `ruby -e "puts (1..5).to_a.shuffle.join(' ')"`
 
 100: $(NAME)
-	make
-	/usr/bin/python3 python_visualizer.py `ruby -e "puts (1..100).to_a.shuffle.join(' ')"`
+	@/usr/bin/python3 python_visualizer.py `ruby -e "puts (1..100).to_a.shuffle.join(' ')"`
 
 500: $(NAME)
-	make
-	/usr/bin/python3 python_visualizer.py `ruby -e "puts (1..500).to_a.shuffle.join(' ')"`
+	@/usr/bin/python3 python_visualizer.py `ruby -e "puts (1..500).to_a.shuffle.join(' ')"`
 
 errors: $(NAME)
 	-./push_swap "1 4 2 a 2"
 	-./push_swap 1 4 2 a 2
 	-./push_swap "1a2"
 	-./push_swap 1a2
-	-./push_swap 1 2 3 4 3000000000
-	-./push_swap "1 2 3 4 3000000000"
+	-./push_swap 1 2 3 4 2147483648
+	-./push_swap "1 2 3 4 2147483648"
+	-./push_swap
 
 valgrind: $(NAME)
 	make

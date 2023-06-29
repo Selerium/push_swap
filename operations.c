@@ -18,7 +18,12 @@ void	swap(t_stack *stack, char c, int opt)
 	{
 		swapitems(stack, 0, 1);
 		if (opt)
-			ft_printf("s%c\n", c);
+		{
+			if (c == 'a')
+				ft_putstr_fd("sa\n", 1);
+			else if (c == 'b')
+				ft_putstr_fd("sb\n", 1);
+		}
 	}
 }
 
@@ -33,7 +38,10 @@ void	rotate(t_stack *stack, char c, int opt)
 			swapitems(stack, 0, i);
 		if (opt)
 		{
-			ft_printf("r%c\n", c);
+			if (c == 'a')
+				ft_putstr_fd("ra\n", 1);
+			else if (c == 'b')
+				ft_putstr_fd("rb\n", 1);
 			updatetop(stack, 1);
 			updateend(stack, 1);
 		}
@@ -51,7 +59,10 @@ void	revrotate(t_stack *stack, char c, int opt)
 			swapitems(stack, 0, i);
 		if (opt)
 		{
-			ft_printf("rr%c\n", c);
+			if (c == 'a')
+				ft_putstr_fd("rra\n", 1);
+			else if (c == 'b')
+				ft_putstr_fd("rrb\n", 1);
 			updatetop(stack, 0);
 			updateend(stack, 0);
 		}
@@ -71,7 +82,7 @@ void	push(t_stack *a, t_stack *b, int dir)
 		revrotate(b, 'b', 0);
 		rotate(a, 'a', 0);
 		a->items -= 1;
-		ft_printf("p%c\n", 'b');
+		ft_putstr_fd("pb\n", 1);
 	}
 	else
 	{
@@ -83,6 +94,6 @@ void	push(t_stack *a, t_stack *b, int dir)
 		revrotate(a, 'a', 0);
 		rotate(b, 'b', 0);
 		b->items -= 1;
-		ft_printf("p%c\n", 'a');
+		ft_putstr_fd("pa\n", 1);
 	}
 }

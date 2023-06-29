@@ -67,7 +67,7 @@ void	ft_printexit(int n)
 		exit(1);
 	if (n == 2)
 	{
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 1);
 		exit(2);
 	}
 	if (n == 3)
