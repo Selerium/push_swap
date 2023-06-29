@@ -6,7 +6,7 @@
 #    By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 22:13:13 by jadithya          #+#    #+#              #
-#    Updated: 2023/06/28 18:25:27 by jadithya         ###   ########.fr        #
+#    Updated: 2023/06/29 14:15:59 by jadithya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ norm:
 
 1: $(NAME)
 	make
-	./push_swap 1
+	./push_swap -1
 
 3: $(NAME)
 	make
@@ -60,6 +60,14 @@ norm:
 500: $(NAME)
 	make
 	/usr/bin/python3 python_visualizer.py `ruby -e "puts (1..500).to_a.shuffle.join(' ')"`
+
+errors: $(NAME)
+	-./push_swap "1 4 2 a 2"
+	-./push_swap 1 4 2 a 2
+	-./push_swap "1a2"
+	-./push_swap 1a2
+	-./push_swap 1 2 3 4 3000000000
+	-./push_swap "1 2 3 4 3000000000"
 
 valgrind: $(NAME)
 	make

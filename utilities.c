@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 21:26:33 by jadithya          #+#    #+#             */
-/*   Updated: 2023/06/28 22:28:28 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/06/29 14:12:03 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	**checkstring(char *av)
 
 	n = 0;
 	i = -1;
-	while (++i < ft_strlen(av))
+	while (++i < (int) ft_strlen(av))
 		if (!ft_isdigit(av[i]) && av[i] != '-' && !ft_isspace(av[i]))
 			ft_printexit(2);
 	while (ft_isspace(av[n]))
