@@ -86,6 +86,7 @@ void	updateend(t_stack *stack, int opt);
 void	set_position(t_stack *a);
 int		find_median(t_stack *a);
 void	sort_5(t_stack *a, t_stack *b, int n);
+void	finddirection(t_stack *a, int min, int max);
 void	separate_chunks(t_stack *a, t_stack *b);
 
 //reassembly:

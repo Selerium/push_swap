@@ -24,14 +24,6 @@ void	ft_swap(t_stack *st, int i, int j)
 	st->numbers[j].position = temp;
 }
 
-void	check_swap(t_stack *a, t_stack *b)
-{
-	if (b->numbers[b->top].position < b->numbers[b->end].position)
-		m_swap(a, b);
-	else
-		swap(a, 'a', 1);
-}
-
 void	sort3_1(t_stack *a, t_stack *b)
 {
 	if (a->numbers[0].position < a->numbers[2].position)
@@ -60,4 +52,12 @@ void	sort3_2(t_stack *a, t_stack *b)
 			rotate(a, 'a', 1);
 		}
 	}
+}
+
+void	check_swap(t_stack *a, t_stack *b)
+{
+	if (b->numbers[b->top].position < b->numbers[b->end].position)
+		m_swap(a, b);
+	else
+		swap(a, 'a', 1);
 }

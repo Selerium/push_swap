@@ -23,20 +23,6 @@ void	check_rotate(t_stack *a, t_stack *b, char c)
 			rotate(a, c, 1);
 	}
 }
-	//else
-	//{
-	//	if (b->numbers[0].position == b->smallest)
-	//	{
-	//		push(a, b, 0);
-	//		b->smallest++;
-	//		if (b->numbers[0].position != b->items)
-	//			m_rotate(a, b);
-	//		else
-	//			rotate(a, c, 1);
-	//	}
-	//	else
-	//		rotate(b, 'b', 1);
-	//}
 
 void	check_revrotate(t_stack *a, t_stack *b, char c)
 {

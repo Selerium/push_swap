@@ -69,7 +69,6 @@ void	revrotate(t_stack *stack, char c, int opt)
 	}
 }
 
-//can probably remove the third last line in each~
 void	push(t_stack *a, t_stack *b, int dir)
 {
 	if (dir)
