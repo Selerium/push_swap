@@ -41,7 +41,8 @@ void	check_atol(char *s)
 	}
 	if (j > -1 && s[j] == '-')
 		number *= -1;
-	if (number > INT_MAX || number < INT_MIN)
+	if (number > INT_MAX || number < INT_MIN || (s[j] == '-'
+			&& (!s[j + 1] || s[j + 1] == ' ')))
 		ft_printexit(2);
 	ft_printexit(4);
 }
