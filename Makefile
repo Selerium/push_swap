@@ -6,7 +6,7 @@
 #    By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 22:13:13 by jadithya          #+#    #+#              #
-#    Updated: 2023/06/29 14:15:59 by jadithya         ###   ########.fr        #
+#    Updated: 2023/06/29 14:19:48 by jadithya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,7 @@ SRCS = $(filter-out thingsidontneed.c teststacks.c, $(wildcard *.c))
 
 CC = cc
 
-CFLAGS = -g3
-
-OS := ${shell uname}
-ifeq (${OS},Darwin)
-	CFLAGS += -Wall -Wextra -Werror
-endif
+CFLAGS = -g3 -Wall -Wextra -Werror
 
 OBJS = $(SRCS:.c=.o)
 

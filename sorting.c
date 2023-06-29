@@ -6,7 +6,7 @@
 /*   By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 21:56:25 by jadithya          #+#    #+#             */
-/*   Updated: 2023/06/28 15:30:59 by jadithya         ###   ########.fr       */
+/*   Updated: 2023/06/29 14:19:13 by jadithya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ void	set_position(t_stack *a)
 	int	i;
 	int	j;
 	int	count;
-	int	max;
 
 	i = -1;
-	max = 0;
 	while (++i < a->items)
 	{
 		count = 0;

@@ -21,8 +21,6 @@
 # include<fcntl.h>
 # include"libft/libft.h"
 
-int		g_counter;
-
 typedef struct number
 {
 	int	value;
