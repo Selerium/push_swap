@@ -6,7 +6,7 @@
 #    By: jadithya <jadithya@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/02 22:13:13 by jadithya          #+#    #+#              #
-#    Updated: 2023/06/29 15:10:59 by jadithya         ###   ########.fr        #
+#    Updated: 2023/06/29 15:30:52 by jadithya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,6 @@ errors: $(NAME)
 	-./push_swap
 
 valgrind: $(NAME)
-	make
 	valgrind --leak-check=full --show-leak-kinds=all ./push_swap 1
 	sleep 5
 	valgrind --leak-check=full --show-leak-kinds=all ./push_swap 3 2 
